@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Syntax Page Exercise</title>
+</head>
+<body>
+<!-- Define attributes / variables section-->
+	<script type="text/javascript">
+
+		/* define attributes / variables
+			number
+			string
+			boolean
+			array
+			dictionary / objects
+			undefined */
+
+		var num = 4;
+		const str = "Greg";
+		var numbool = true;
+		var strarr = ["Greg", "Faith", "Roger"];
+		var dict = {street: "one", avenue: "hart", site: "twenty"};
+		var a;
+
+		console.log(num, str, numbool, strarr, dict, a);
+
+		if (num > 5) {console.log("good job")}
+			else {console.log("bad job!")};
+
+		function gregFunc(p1) {
+			return p1*5  // returns value times 5//
+		};
+		
+		//console.log(gregFunc(num));//
+
+		strarr.push("Hello");
+		strarr.unshift("goodbye");
+		strarr[2] = "Gregory";
+
+		//console.log(strarr);//
+		document.write(strarr + "<br>");
+
+		// now practice loops //
+		// for/in loop//
+
+
+		var i;
+		for (i = 0;i < 5; i = i + 1) {document.write("Number is " + i + "<br>")};
+		
+		var i = 0;
+		for (i in dict) {document.write(dict[i])};
+
+		var n = 0;
+		while (n < 10) {
+			console.log("The number is " + n);
+			n++;
+		}
+
+		var m = 0;
+		var text = "";
+		do {
+			text += "the number is " + m;
+			console.log(text + "<br>");
+			m++;
+		}
+		while (m < 20);
+
+		var y = [10, 20, 30];
+		y.forEach( function (num) {
+			console.log(num+ 5);
+		})
+		
+		// objects and dictionaries //
+
+		var dict2 = {first: "One", second: "two", third: "three"}
+
+
+		console.log(dict2["second"])
+
+
+
+
+	</script>
+
+	<p></p>
+
+</body>
+</html>

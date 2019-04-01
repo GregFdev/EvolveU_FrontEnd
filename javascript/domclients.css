@@ -1,0 +1,65 @@
+.background {
+	
+	
+}
+.container {
+	display: flex;
+	justify-content: center;
+	flex-wrap: nowrap;
+	background-image: linear-gradient(to bottom, red, yellow);
+	overflow: auto;
+}
+
+#idBtnAddCard {
+	width: auto;
+	margin: 10px;
+
+	/*align-content: center;*/
+	/*text-align: center;*/
+
+
+}
+
+.buttons {
+	margin: 5px;
+	border: solid black 3px;
+	border-radius: 5px;
+
+}
+
+.names {
+	margin: 10px;
+	padding: 5px;
+	border-radius: 5px;
+
+}
+
+.areaCards {
+	
+	flex-direction: column;
+	text-align: center;
+
+	/*border: solid black;*/
+	width: 250px;
+	height: 700px;
+	padding: 20px;
+	margin: 10px;
+	
+
+}
+
+
+.cards {
+	
+	/*flex-direction: column;*/
+	flex-wrap: wrap;
+	white-space: pre; /* required for line break */
+	background-color: white;
+	border: solid black 3px;
+	color: black;
+	margin: 10px;
+	padding: 10px;
+	border-radius: 10px;
+	box-shadow: 5px 5px;
+
+}
