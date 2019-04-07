@@ -31,9 +31,9 @@ const array = [
 const arrayNew2 = [];
 array.forEach((num) => {
   num.username += "!";
-  arrayNew2.push(num);
+  // arrayNew2.push(num);
 })
-
+console.log('array is now ', array[0].username);
 
 
 
@@ -50,10 +50,10 @@ const mapArray10 = array.map(item => {
 
 //Filter the array to only include users who are on team: red
 const filterArray = array.filter(user => user.team === "red");
-console.log(filterArray);
+console.log('filter array is ', filterArray);
 
 const filterArray3 = array.filter(user => user.team === "red" || user.score > 9);
-console.log(filterArray);
+console.log('filter 2 is', filterArray);
 
 //Find out the total score of all users using reduce
 
@@ -61,7 +61,7 @@ const totScore = array.reduce((cumScore, user) => {
   console.log(cumScore);
   return cumScore + user.score;
 }, 0);
-console.log(totScore);
+console.log('total score ', totScore);
 
 // (1), what is the value of i?
 // (2), Make this map function pure:

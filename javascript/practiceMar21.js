@@ -16,8 +16,8 @@ const data = {
 	prov: "Alberta"
 };
 
-const table = [{name: 'Greg', age: 46}, {name: 'Julia', age: 12}, {name: 'Natalie', age: 10}]
-
+const ageTable = [{name: 'Greg', age: 46}, {name: 'Julia', age: 12}, {name: 'Natalie', age: 10}]
+console.log(ageTable.length);
 // Write the function after this comment ---
 
 
@@ -33,23 +33,19 @@ const table = [{name: 'Greg', age: 46}, {name: 'Julia', age: 12}, {name: 'Natali
 // 	return (runSum);
 // }
 
-// const totalBalance = data.staff.reduce((cumBal, items) => {
-// 	console.log(cumBal);
-// 	return cumBal + items.balance;
-// }, 0);
+// const totalBalance = data.staff.reduce((cumBal, items) => 
+// 	cumBal + items.balance, 0);
+
 
 // console.log('total balance is = ', totalBalance);
 
-const totalAge = table.reduce((cumAge, items) => {
-	// console.log(cumAge);
-	return cumAge + items.age;
-}, 0);
+// const totalAge = ageTable.reduce((cumAge, items) => 
+// 	cumAge + items.age, 0)
 
-console.log('total balance is = ', totalAge);
+// console.log('total age is = ', totalAge);
+const ageLength = ageTable.length;
+const avgAge = ageTable.reduce((cumAge, items) => 
+	(cumAge + items.age) / ageLength, 0);
 
-const avgAge = table.reduce((cumAge, items) => {
-	// console.log(cumAge);
-	return ((cumAge + items.age) / len(items)) ;
-}, 0);
 
 console.log('average age is = ', avgAge);
