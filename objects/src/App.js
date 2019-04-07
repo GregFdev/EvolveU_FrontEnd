@@ -5,7 +5,6 @@ import phone from './components/iconphone.png';
 import bell from './components/iconbell.png';
 import circle from './components/iconcircle.png';
 import './App.css';
-import MathComp from './components/MathComp.js'
 
 
 
@@ -39,7 +38,7 @@ class App extends Component {
             <div className="App">
                 <div>
                     <p>Greg Apps Here</p>
-                    <MathComp name='Greg' state={this.state}/>
+                    
                     <img id='camera' src={camera} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''}/>
                     <img id='bell' src={bell} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} />
                     <img id='phone' src={phone} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} />
