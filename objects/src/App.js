@@ -5,6 +5,7 @@ import phone from './components/iconphone.png';
 import bell from './components/iconbell.png';
 import circle from './components/iconcircle.png';
 import './App.css';
+import MathComp from './components/MathComp.js';
 
 
 
@@ -13,8 +14,20 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-          myState: false
+          myState: false,
+          myComp: '',
+          myNum1: null,
+          myNum2: null
         };
+    };
+
+    onClick = (e) => {
+        console.log(e.target.id);
+        this.pressed = e.target.id;
+        this.setState({
+            myComp: e.target.id
+        });
+        
     };
 
     onOver = (e) => {
@@ -22,7 +35,7 @@ class App extends Component {
         this.setState({
             myState: true
         });
-        // console.log(this.state);
+        // console.log(this.state);    
     };
 
     onOut = (e) => {
@@ -32,6 +45,21 @@ class App extends Component {
         });
         // console.log(this.state);
     };
+    
+    handleInputChange = (e) => {
+        
+        if(e.target.name === 'num1') {
+            this.setState({
+                myNum1: e.target.value
+            })
+        } else {
+            this.setState({
+                myNum2: e.target.value
+            })
+        }
+        console.log('changed field is ', e.target.name);
+    }
+
 
     render() {
         return (
@@ -39,10 +67,27 @@ class App extends Component {
                 <div>
                     <p>Greg Apps Here</p>
                     
-                    <img id='camera' src={camera} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''}/>
-                    <img id='bell' src={bell} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} />
-                    <img id='phone' src={phone} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} />
-                    <img id='circle' src={circle} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} /> 
+                    <img id='addition' src={camera} onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''}/>
+                    <img id='subtraction' src={bell} onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} />
+                    <img id='multiply' src={phone} onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} />
+                    <img id='divide' src={circle} onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} /> 
+
+                    <input 
+                        name='num1' 
+                        value={this.state.num1}
+                        onChange={this.handleInputChange}
+                        >
+                    </input>
+
+                    <input 
+                        name='num2' 
+                        value={this.state.num2}
+                        onChange={this.handleInputChange}
+                        >
+                    </input>
+
+                    <MathComp action={this.pressed}/>
+
                     <header className="App-header">
                         <img src={mylogo} className="App-logo" alt="logo" />
                         <p>
@@ -60,7 +105,9 @@ class App extends Component {
                 </div>
             </div>
         );
-    }
-}
+    };
+};
 
 export default App;
+
+    

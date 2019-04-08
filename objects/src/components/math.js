@@ -16,9 +16,7 @@ export function quot(a,b) {
 	return a/b;
 };
 
-	// let diff = (a,b) => 0;
-	// let mult = (a,b) => 0;
-	// let quot = (a,b) => 0;
+	
 
 
 
