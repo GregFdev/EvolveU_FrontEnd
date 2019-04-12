@@ -15,7 +15,15 @@ test('test new accountContr instantiation', () => {
 	expect(accountCtr1.acctList[0].userName).toBe('Greg');
 	expect(accountCtr1.acctList[0].acctID).toBe(0);
 
-	
+	console.log('test account deletion');
+	console.log('list length is ' + accountCtr1.acctList.length);
+
+	accountCtr1.deleteAccount[0];
+	console.log('new length is ' + accountCtr1.acctList.length);
+	expect(accountCtr1.acctList.length).toBe(0);
+
+
+
 
 
 });

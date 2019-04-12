@@ -14,7 +14,10 @@ class AccountContr {
 		this.acctID += 1;
 	}
 
-	// deleteAccount = ()
+	deleteAccount = (acctID) => {
+		this.acctList.splice(acctID, 1);
+
+	}
 };
 
 
