@@ -1,31 +1,27 @@
 import React, { Component } from 'react';
 import mylogo from './logo.svg';
+import calculator from './components/calculator.png';
 import camera from './components/iconcamera.png';
 import phone from './components/iconphone.png';
 import bell from './components/iconbell.png';
 import circle from './components/iconcircle.png';
 import './App.css';
 import MathComp from './components/MathComp.js';
-
-
+// import Account from './components/Account.js';
 
 
 class App extends Component {
     constructor() {
         super();
         this.state = {
-          myState: false,
-          myComp: '',
-          myNum1: null,
-          myNum2: null
+          myOver: false,
+          display: 'react',  // set initial display state
         };
     };
 
     onClick = (e) => {
-        console.log(e.target.id);
-        this.pressed = e.target.id;
         this.setState({
-            myComp: e.target.id
+            display: e.target.id
         });
         
     };
@@ -33,60 +29,34 @@ class App extends Component {
     onOver = (e) => {
         e.target.style.backgroundColor = 'red';
         this.setState({
-            myState: true
+            myOver: true
         });
-        // console.log(this.state);    
     };
 
     onOut = (e) => {
         e.target.style.backgroundColor = '';
         this.setState({
-            myState: false
+            myOver: false
         });
-        // console.log(this.state);
     };
     
-    handleInputChange = (e) => {
-        
-        if(e.target.name === 'num1') {
-            this.setState({
-                myNum1: e.target.value
-            })
-        } else {
-            this.setState({
-                myNum2: e.target.value
-            })
-        }
-        console.log('changed field is ', e.target.name);
-    }
-
-
+    
     render() {
+
         return (
             <div className="App">
                 <div>
-                    <p>Greg Apps Here</p>
+                    <p>Greg's React Page</p>
                     
-                    <img id='addition' src={camera} onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''}/>
-                    <img id='subtraction' src={bell} onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} />
-                    <img id='multiply' src={phone} onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} />
-                    <img id='divide' src={circle} onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} /> 
+                    <img id='react' src={camera} onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''}/>
+                    <img id='calculator' src={calculator} onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''}/>
+                    <img id='subtraction' src={bell} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} />
+                    <img id='multiply' src={phone} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} />
+                    <img id='divide' src={circle} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} /> 
 
-                    <input 
-                        name='num1' 
-                        value={this.state.num1}
-                        onChange={this.handleInputChange}
-                        >
-                    </input>
-
-                    <input 
-                        name='num2' 
-                        value={this.state.num2}
-                        onChange={this.handleInputChange}
-                        >
-                    </input>
-
-                    <MathComp action={this.pressed}/>
+                    <br></br>
+                    
+                    {this.state.display === 'calculator' ? <MathComp /> : ''}
 
                     <header className="App-header">
                         <img src={mylogo} className="App-logo" alt="logo" />
