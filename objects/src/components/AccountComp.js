@@ -40,12 +40,16 @@ class AccountComp extends Component {
 					</h1>
 					
 					<h2 className='acctInfo'>
-						<p>Account Holder: {gregAccount.userName}</p>
-						
-						<p>Account Type: {gregAccount.acctType}</p>
-						
-						<p>Account Balance $CDN: {this.state.balance}</p>
-						
+						<div>
+
+							<p>Account Holder: </p><p>{gregAccount.userName}</p>
+							
+							<p>Account Type: {gregAccount.acctType}</p>
+							
+							<p>Account Balance $CDN: {this.state.balance}</p>
+
+						</div>
+
 					</h2>
 					<div className='acctInput'>
 						<p>Deposit Amount $CDN: </p>
