@@ -1,0 +1,100 @@
+.background {
+	background-color: lightgrey;
+	
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+
+}
+.account {
+	display: flex;
+	justify-content: center;
+	background-color: lightgrey;
+	flex-direction: column;
+	text-align: center;
+	border: solid black;
+	border-radius: 20px;
+	width: 375px;
+	height: 575px;
+	padding: 20px;
+	margin: 30px;
+	box-shadow: 9px 10px 5px #282c34c9;
+
+}
+
+.acctInfo {
+	background-color: #61dafb;
+    padding: 10px;
+    border: solid #282c34c9 3px;
+    border-width: 5px;
+    border-radius: 10px;
+    box-shadow: 9px 10px 5px #282c34c9;
+    text-align: left;
+}
+
+.acctInput {
+	background-color: #61dafb;
+    padding: 10px;
+    border: solid #282c34c9 3px;
+    border-width: 5px;
+    border-radius: 10px;
+    box-shadow: 9px 10px 5px #282c34c9;
+    text-align: left;
+    font-size: 1.2em;
+    font-weight: bold;
+
+
+}
+.inputFields {
+	font-size: 16px;
+
+	/*align-content: center;*/
+	/*text-align: center;*/
+
+
+}
+
+.buttons {
+	margin: 5px;
+	border-radius: 5px;
+	font-size: 16px;
+}
+
+.areaCards {
+	
+	flex-direction: column;
+	text-align: center;
+
+	border: solid black;
+	width: 250px;
+	height: 400px;
+	padding: 20px;
+	margin: 10px;
+	overflow: auto;
+
+}
+
+.areaRight {
+	flex-direction: column;
+	text-align: center;
+	border: solid black;
+	margin: 10px;
+	padding: 20px;
+	width: 350px;
+	height: 400px;
+	
+}
+
+.cards {
+	
+	/*flex-direction: column;*/
+	flex-wrap: wrap;
+	white-space: pre;  /*required for line break */
+	background-color: grey;
+	border: solid black 3px;
+	color: white;
+	margin: 10px;
+	padding: 5px;
+}

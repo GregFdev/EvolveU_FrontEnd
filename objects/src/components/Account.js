@@ -1,5 +1,5 @@
 //Account JS file for comp 140
-import react from 'react';
+// import react from 'react';
 
 class Account {
 	constructor(acctType, initBal, userName, acctID){

@@ -68,14 +68,14 @@ class MathComp extends Component {
 
 					<input 
                         name='num1' 
-                        value = {this.num1}
+                        // value = {this.num1}
                         onChange = {this.handleInputChange}
                         >
                     </input>
 
                     <input 
                         name='num2' 
-                        value = {this.num2}
+                        // value = {this.num2}
                         onChange = {this.handleInputChange}
                         >
                     </input>
