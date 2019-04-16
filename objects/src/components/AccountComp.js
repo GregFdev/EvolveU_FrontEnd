@@ -3,7 +3,7 @@ import Account from './Account.js';
 import './style_accounts.css';
 
 // create sample account
-const gregAccount = new Account('chequing', 1000, 'Gregory', 1);
+const gregAccount = new Account('Savings', 1000, 'Julia Freson', 1);
 
 class AccountComp extends Component {
 	constructor () {

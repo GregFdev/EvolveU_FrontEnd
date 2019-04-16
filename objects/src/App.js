@@ -28,14 +28,16 @@ class App extends Component {
     };
 
     onOver = (e) => {
-        e.target.style.backgroundColor = 'red';
+        // e.target.style.backgroundColor = 'red';
+        e.target.style.transform = 'scale(1.3, 1.3)';
         this.setState({
             myOver: true
         });
     };
 
     onOut = (e) => {
-        e.target.style.backgroundColor = '';
+        // e.target.style.backgroundColor = '';
+        e.target.style.transform = 'initial';
         this.setState({
             myOver: false
         });
@@ -43,26 +45,27 @@ class App extends Component {
     
     
     render() {
-        console.log('display is ' + this.state.display);
+        // console.log('display is ' + this.state.display);
         return (
             <div className="App">
+                <div className='containerApp'>
+                    <h1>Greg's React Page</h1>
+                    <div>
+                        <img id='reactComp' src={camera} onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''}/>
+                        <img id='calculator' src={calculator} onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''}/>
+                        <img id='account' src={dollar} height='60' onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} />
+                        <img id='multiply' src={phone} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} />
+                        <img id='divide' src={circle} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} /> 
+                    </div>
+                </div>
                 <div>
-                    <p>Greg's React Page</p>
-                    <img id='reactComp' src={camera} onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''}/>
-                    <img id='calculator' src={calculator} onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''}/>
-                    <img id='account' src={dollar} onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} />
-                    <img id='multiply' src={phone} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} />
-                    <img id='divide' src={circle} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} /> 
-
-                    <br></br>
-                    
                     {this.state.display === 'reactComp' ? <ReactComp /> : ''}
                     {this.state.display === 'calculator' ? <MathComp /> : ''}
                     {this.state.display === 'account' ? <AccountComp /> : ''}
-
+                </div>
 
                     
-                </div>
+                
             </div>
         );
     };

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {sum, diff, mult, quot} from "./math";
-
+import './style_accounts.css';
 
 
 class MathComp extends Component {
@@ -60,11 +60,12 @@ class MathComp extends Component {
 	render() {
 
 		return(
-			<div>
-				<h1>
-				Enter two numbers please: 
-				</h1>
-				<br></br>
+			<div className='containerCalc'>
+				<div>
+					<h1>
+					Enter two numbers please: 
+					</h1>
+					<br></br>
 
 					<input 
                         name='num1' 
@@ -80,25 +81,25 @@ class MathComp extends Component {
                         >
                     </input>
 
-				<br></br><br></br>
+					<br></br><br></br>
 
-				<div id="opsbtns">
-				<button className="btn operator" id="btndiv" onClick={this.onClick} >/</button>
-				<button className="btn operator" id="btnmult" onClick={this.onClick} >*</button>
-				<button className="btn operator" id="btnsub" onClick={this.onClick} >-</button>
-				<button className="btn operator" id="btnadd" onClick={this.onClick} >+</button>
+					<div id="opsbtns">
+						<button className="btn operator" id="btndiv" onClick={this.onClick} >/</button>
+						<button className="btn operator" id="btnmult" onClick={this.onClick} >*</button>
+						<button className="btn operator" id="btnsub" onClick={this.onClick} >-</button>
+						<button className="btn operator" id="btnadd" onClick={this.onClick} >+</button>
 
-				<br></br><br></br>
+						<br></br><br></br>
 
-				<p>The Answer Is:  {this.state.numTotal}
-				
-					
-				
-				</p>
-				
+						<p>The Answer Is:  {this.state.numTotal}
+						
+							
+						
+						</p>
+						
 
+					</div>
 				</div>
-
 			</div>
 	)};
 };
