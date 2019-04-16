@@ -1,19 +1,34 @@
 import React, { Component } from 'react';
-import Account from './Account.js';
+// import Account from './Account.js';
 import AccountComp from './AccountComp.js';
+import AccountContr from './AccountContr.js';
 import './style_accounts.css';
 
 
 class AccountContrComp extends Component {
 	constructor () {
 		super();
-
-	}
-
-	onClick = (e) => {
-		
+		this.controller = new AccountContr();
+		this.state = {
+			acctList: this.controller.acctList
+		};
 
 	};
+
+	onClickAddAccount = (e) => {
+		// console.log('you clicked add account');
+		let inAddBalance = document.getElementById('inputAddBalance').value;
+		let inAddName = document.getElementById('inputAddAcctName').value;
+		this.controller.addAccount(inAddName, inAddBalance);
+		this.setState({
+			acctList: this.controller.acctList
+		});
+		console.log('controller acct list ', this.controller.acctList);
+		console.log('state acct list ', this.state.acctList);
+		
+	};
+
+
 
 	render() {
 		return(
@@ -22,23 +37,28 @@ class AccountContrComp extends Component {
 					<div className='upperleft'>
 
 
-						<h2>
-							Accounts General Info
-						</h2>
+						<h2>Total of all accounts is </h2>
+						<p>{this.controller.getAccountsTotal()}</p>
+						
 					
 					</div>
 
 					<div className='lowerleft'>
 
 						<h2>
-							Account Listing Table
+							Add Account?  Why not!
 						</h2>
+						<input id='inputAddBalance' placeholder='Initial Balance' type='number'></input>
+						<input id='inputAddAcctName' placeholder='Account Name'></input>
+
+						<button id='btnNewAcct' onClick={this.onClickAddAccount}>Add Account</button>
 
 					</div>
 
 					<div className='rightside'>
 
-						<AccountComp />
+						<h2>put account card here</h2>
+
 						
 					</div>
 
@@ -52,7 +72,7 @@ class AccountContrComp extends Component {
 		)
 
 	
-};
+	};
 };
 
 export default AccountContrComp;

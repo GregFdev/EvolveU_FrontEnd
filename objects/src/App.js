@@ -6,8 +6,10 @@ import dollar from './components/iconDollar.png';
 import circle from './components/iconcircle.png';
 import './App.css';
 import MathComp from './components/MathComp.js';
-import AccountComp from './components/AccountComp.js';
+// import AccountComp from './components/AccountComp.js';
 import ReactComp from './ReactComp.js';
+import AccountContrComp from './components/AccountContrComp';
+
 // import Account from './components/Account.js';
 
 
@@ -16,7 +18,7 @@ class App extends Component {
         super();
         this.state = {
           myOver: false,
-          display: 'account',  // set initial display state
+          display: 'accountContr',  // set initial display state
         };
     };
 
@@ -53,7 +55,7 @@ class App extends Component {
                     <div>
                         <img id='reactComp' src={camera} onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''}/>
                         <img id='calculator' src={calculator} onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''}/>
-                        <img id='account' src={dollar} height='60' onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} />
+                        <img id='accountContr' src={dollar} height='60' onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} />
                         <img id='multiply' src={phone} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} />
                         <img id='divide' src={circle} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} /> 
                     </div>
@@ -61,7 +63,7 @@ class App extends Component {
                 <div>
                     {this.state.display === 'reactComp' ? <ReactComp /> : ''}
                     {this.state.display === 'calculator' ? <MathComp /> : ''}
-                    {this.state.display === 'account' ? <AccountComp /> : ''}
+                    {this.state.display === 'accountContr' ? <AccountContrComp /> : ''}
                 </div>
 
                     

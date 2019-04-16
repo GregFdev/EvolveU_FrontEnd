@@ -28,7 +28,7 @@ test('test withdraw method and result', () => {
 });
 
 test('test account name', () => {
-	const gregAccount = new Account('chequing', 10, 'Greg');
+	const gregAccount = new Account('chequing', 10);
 
 
 })
