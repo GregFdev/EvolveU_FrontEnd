@@ -26,6 +26,7 @@ test('test new accountContr instantiation', () => {
 	// console.log('test accounts total');
 	// console.log('acct total is ' + accountCtr1.getAccountsTotal());
 	expect(accountCtr1.getAccountsTotal()).toBe(3500);
+	expect(accountCtr1.getAccountsTotal()).toBe(3500);
 
 	// console.log('test max account');
 	// console.log('max account ID is ' + accountCtr1.getMaxAccount());

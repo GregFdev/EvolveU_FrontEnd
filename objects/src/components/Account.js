@@ -6,7 +6,7 @@ class Account {
 		// super();
 		this.acctID = acctID;
 		this.acctType = acctType;
-		this.balance = initBal;
+		this.balance = Number(initBal);
 		
 	};
 

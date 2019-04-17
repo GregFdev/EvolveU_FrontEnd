@@ -10,21 +10,29 @@ class AccountContrComp extends Component {
 		super();
 		this.controller = new AccountContr();
 		this.state = {
-			acctList: this.controller.acctList
+			acctList: this.controller.acctList,
+			total: this.controller.getAccountsTotal(),
+			large: this.controller.getMaxAccount(),
+			small: this.controller.getMinAccount()
 		};
 
 	};
 
 	onClickAddAccount = (e) => {
 		// console.log('you clicked add account');
-		let inAddBalance = document.getElementById('inputAddBalance').value;
+		let inAddBalance = Number(document.getElementById('inputAddBalance').value);
 		let inAddName = document.getElementById('inputAddAcctName').value;
 		this.controller.addAccount(inAddName, inAddBalance);
+		// console.log('total is ', this.controller.getAccountsTotal());
+
 		this.setState({
-			acctList: this.controller.acctList
+			acctList: this.controller.acctList,
+			total: this.controller.getAccountsTotal(),
+			large: this.controller.getMaxAccount(),
+			small: this.controller.getMinAccount()
 		});
-		console.log('controller acct list ', this.controller.acctList);
-		console.log('state acct list ', this.state.acctList);
+		// console.log('controller acct list ', this.controller.acctList);
+		// console.log('state acct list ', this.state.acctList);
 		
 	};
 
@@ -32,39 +40,41 @@ class AccountContrComp extends Component {
 
 	render() {
 		return(
-			<div className='container'>
-				<div className='leftside'>
-					<div className='upperleft'>
+			<div className='containerContr'>
+				<div className='containerLeft'>
+					<div className='account'>
 
 
-						<h2>Total of all accounts is </h2>
-						<p>{this.controller.getAccountsTotal()}</p>
+						<h2>Total of all accounts is ($CDN): {this.state.total}</h2>
+						<h2>Number of Accounts is: {this.state.acctList.length}</h2>
+						<h2>Largest account is: {this.state.large}</h2>
+						<h2>Smallest account is: {this.state.small}</h2>
 						
 					
 					</div>
 
-					<div className='lowerleft'>
+					<div className='account'>
 
 						<h2>
 							Add Account?  Why not!
 						</h2>
-						<input id='inputAddBalance' placeholder='Initial Balance' type='number'></input>
-						<input id='inputAddAcctName' placeholder='Account Name'></input>
+						<input className='inputFields' id='inputAddBalance' placeholder='Initial Balance' type='number'></input>
+						<input className='inputFields' id='inputAddAcctName' placeholder='Account Name'></input>
 
-						<button id='btnNewAcct' onClick={this.onClickAddAccount}>Add Account</button>
+						<button className='buttons' id='btnNewAcct' onClick={this.onClickAddAccount}>Add Account</button>
 
 					</div>
+				</div>
 
-					<div className='rightside'>
+				<div className='containerRight'>
 
-						<h2>put account card here</h2>
+					<h2>put account card here</h2>
+					<AccountComp />
 
 						
-					</div>
+				</div>
 
 					
-
-				</div>
 
 			</div>
 

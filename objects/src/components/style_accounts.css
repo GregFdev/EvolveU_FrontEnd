@@ -8,21 +8,40 @@
 	justify-content: center;
 }
 
+.containerContr {
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+}
+
 .containerCalc {
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+}
+.containerLeft {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	text-align: center;
+	text-align: left;
+}
+
+.containerRight {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: left;
+
 }
 .account {
 	display: flex;
-	justify-content: center;
+	justify-content: left;
 	background-color: lightgrey;
 	flex-direction: column;
-	text-align: center;
+	text-align: left;
 	border: solid black;
 	border-radius: 20px;
-	width: 500px;
+	max-width: 500px;
 	height: auto;
 	padding: 20px;
 	margin: 30px;
@@ -54,8 +73,9 @@
 
 }
 .inputFields {
-	font-size: 16px;
+	font-size: 20px;
 	border-radius: 5px;
+	max-width: 300px;
 
 	/*align-content: center;*/
 	/*text-align: center;*/
@@ -65,8 +85,13 @@
 
 .buttons {
 	margin: 5px;
+	padding: 4px;
+	background-color: #61dafb;
+	font-weight: bold;
+	border-color: solid black;
 	border-radius: 5px;
-	font-size: 16px;
+	font-size: 20px;
+	width: 200px;
 }
 
 .areaCards {

@@ -25,50 +25,53 @@ class AccountContr {
 
 	getAccountsTotal = () => {
 		return (
-			Number(
-				this.acctList.reduce((cumTot, account) => {
-								// console.log('total is ' + (cumTot + account.balance));
-								return cumTot + account.balance;
-							}, 0)
-
-
-				)
-			
+			this.acctList.reduce((cumTot, account) => {
+			console.log('acct ID is ', account.acctID, 'cumTot is ', cumTot, 'account balance is ', account.balance);
+			console.log('data type is ', typeof cumTot);
+			return Number(cumTot + account.balance);
+			}, 0)
 		);
 	};
 
 	getMaxAccount = () => {
-		let tempMax = this.acctList[0].balance;
-		let tempMaxID = this.acctList[0].acctID;
 
-		this.acctList.forEach(acct => {
+		if(this.acctList.length > 0) {
+			let tempMax = this.acctList[0].balance;
+			let tempMaxID = this.acctList[0].acctID;
+			this.acctList.forEach(acct => {
 
-			if(acct.balance > tempMax) {
+				if(acct.balance > tempMax) {
 
-				tempMax = acct.balance;
-				tempMaxID = acct.acctID;
-			};
+					tempMax = acct.balance;
+					tempMaxID = acct.acctID;
+				};
+			
+			});
 		
-		});
-	
-		return tempMaxID;
+			return tempMaxID;
+
+		} else {return null};
 		};
 
 	getMinAccount = () => {
-		let tempMin = this.acctList[0].balance;
-		let tempMinID = this.acctList[0].acctID;
+		
+		if(this.acctList.length > 0) {
 
-		this.acctList.forEach(acct => {
+			let tempMin = this.acctList[0].balance;
+			let tempMinID = this.acctList[0].acctID;
+			this.acctList.forEach(acct => {
 
-			if(acct.balance < tempMin) {
-				tempMin = acct.balance;
-				tempMinID = acct.acctID;
-				// console.log(tempMinID);
+				if(acct.balance < tempMin) {
+					tempMin = acct.balance;
+					tempMinID = acct.acctID;
+					// console.log(tempMinID);
 
-			};
-		});
+				};
+			});
 
-		return tempMinID;
+			return tempMinID;
+
+		} else {return null};
 	};
 };
 

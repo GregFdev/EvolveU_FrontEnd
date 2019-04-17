@@ -6,13 +6,13 @@ import './style_accounts.css';
 const gregAccount = new Account('Savings', 1000, 1);
 
 class AccountComp extends Component {
-	constructor () {
-		super();
-				// this.state = {
-				// 	// newAccount: this.props.newAccount
-				// };
+	// constructor () {
+	// 	super();
+	// 			// this.state = {
+	// 			// 	// newAccount: this.props.newAccount
+	// 			// };
 
-	};
+	// };
 		
 	onClickDep = (e) => {
 		let depNum = document.getElementById("depInput");

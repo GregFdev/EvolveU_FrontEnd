@@ -61,20 +61,24 @@ class MathComp extends Component {
 
 		return(
 			<div className='containerCalc'>
-				<div>
+				<div className='account'>
 					<h1>
 					Enter two numbers please: 
 					</h1>
 					<br></br>
 
 					<input 
+						className='inputFields'
                         name='num1' 
+                        placeholder='First Number'
                         // value = {this.num1}
                         onChange = {this.handleInputChange}
                         >
                     </input>
 
                     <input 
+                    	className='inputFields'
+                    	placeholder='Second Number'
                         name='num2' 
                         // value = {this.num2}
                         onChange = {this.handleInputChange}
@@ -83,11 +87,11 @@ class MathComp extends Component {
 
 					<br></br><br></br>
 
-					<div id="opsbtns">
-						<button className="btn operator" id="btndiv" onClick={this.onClick} >/</button>
-						<button className="btn operator" id="btnmult" onClick={this.onClick} >*</button>
-						<button className="btn operator" id="btnsub" onClick={this.onClick} >-</button>
-						<button className="btn operator" id="btnadd" onClick={this.onClick} >+</button>
+					<div className='inputFields' id="opsbtns">
+						<button className="buttons" id="btndiv" onClick={this.onClick} >/</button>
+						<button className="buttons" id="btnmult" onClick={this.onClick} >*</button>
+						<button className="buttons" id="btnsub" onClick={this.onClick} >-</button>
+						<button className="buttons" id="btnadd" onClick={this.onClick} >+</button>
 
 						<br></br><br></br>
 
