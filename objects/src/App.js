@@ -6,7 +6,7 @@ import dollar from './components/iconDollar.png';
 import circle from './components/iconcircle.png';
 import './App.css';
 import MathComp from './components/MathComp.js';
-// import AccountComp from './components/AccountComp.js';
+// import AccountComp from './components/AccountCompPart1.js';
 import ReactComp from './ReactComp.js';
 import AccountContrComp from './components/AccountContrComp';
 

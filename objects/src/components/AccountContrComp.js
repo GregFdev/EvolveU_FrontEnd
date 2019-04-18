@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import Account from './Account.js';
-import AccountComp from './AccountComp.js';
+import AccountComp from './AccountCompPart2.js';
 import AccountContr from './AccountContr.js';
 import './style_accounts.css';
 
@@ -8,74 +8,85 @@ import './style_accounts.css';
 class AccountContrComp extends Component {
 	constructor () {
 		super();
-		this.controller = new AccountContr();
-		this.state = {
-			acctList: this.controller.acctList,
-			total: this.controller.getAccountsTotal(),
-			large: this.controller.getMaxAccount(),
-			small: this.controller.getMinAccount()
-		};
+		const controller = new AccountContr();
 
+		controller.addAccount('saving');
+		controller.addAccount('chequing');
+		controller.addAccount('empty');
+		controller.addAccount('invest');
+		
+		this.state = {
+			controllerState: controller
+		};
 	};
 
 	onClickAddAccount = (e) => {
-		// console.log('you clicked add account');
-		let inAddBalance = Number(document.getElementById('inputAddBalance').value);
-		let inAddName = document.getElementById('inputAddAcctName').value;
-		this.controller.addAccount(inAddName, inAddBalance);
-		// console.log('total is ', this.controller.getAccountsTotal());
-
-		this.setState({
-			acctList: this.controller.acctList,
-			total: this.controller.getAccountsTotal(),
-			large: this.controller.getMaxAccount(),
-			small: this.controller.getMinAccount()
-		});
-		// console.log('controller acct list ', this.controller.acctList);
-		// console.log('state acct list ', this.state.acctList);
 		
+		const newState = this.state.controllerState;  //must add controller to a variable to run addAcount
+		newState.addAccount();
+		this.setState({
+			controllerState: newState
+		})
+		
+		// console.log('num of accts in click = ', this.state.controllerState.acctList.length);
 	};
 
 
 
 	render() {
+
+		// console.log('num accts in render = ', this.state.controllerState.length);
+		const acctList = this.state.controllerState.acctList.map((item) => {
+			// console.log('account type ', item.acctType, 'account ID', item.acctID);
+			return (
+				// <li key={item.acctID}>{item.acctID}: Account Name: {item.acctType} and Account Balance: {item.balance}</li>
+				<AccountComp key={item.acctID} account={item}/>
+			)
+		});
+
+		// console.log('list is:', acctListRender);
+			
+
+		
+
+	
 		return(
+
 			<div className='containerContr'>
 				<div className='containerLeft'>
 					<div className='account'>
 
 
-						<h2>Total of all accounts is ($CDN): {this.state.total}</h2>
-						<h2>Number of Accounts is: {this.state.acctList.length}</h2>
-						<h2>Largest account is: {this.state.large}</h2>
-						<h2>Smallest account is: {this.state.small}</h2>
+						<h4>Total of all accounts is ($CDN): </h4>
+						<h4>Number of Accounts is: </h4>
+						<h4>Largest account is: </h4>
+						<h4>Smallest account is: </h4>
 						
 					
 					</div>
 
-					<div className='account'>
-
-						<h2>
-							Add Account?  Why not!
-						</h2>
-						<input className='inputFields' id='inputAddBalance' placeholder='Initial Balance' type='number'></input>
-						<input className='inputFields' id='inputAddAcctName' placeholder='Account Name'></input>
+					<div className='acctInfo'>
 
 						<button className='buttons' id='btnNewAcct' onClick={this.onClickAddAccount}>Add Account</button>
+						{acctList}
 
 					</div>
+
+					
 				</div>
 
-				<div className='containerRight'>
+				<div id='accountlist' className='containerRight'>
 
-					<h2>put account card here</h2>
-					<AccountComp />
+					
+						
+					
+
+					
+					
+								
 
 						
 				</div>
-
-					
-
 			</div>
 
 

@@ -2,17 +2,27 @@
 import Account from './Account.js';
 
 class AccountContr {
+
 	constructor(){
-		this.acctList = [];
-		this.acctID = 1;
+		this.acctList = []
+		this.acctID = 0;
+		
 
 	};
 
-	addAccount (acctType, initBal) {
-		const newAccount = new Account(acctType, initBal, this.acctID);
-		this.acctList.push(newAccount);
+	addAccount (accountName) {
 		this.acctID += 1;
+		const newAccount = new Account(accountName, 0, this.acctID);
+		this.acctList.push(newAccount);
+		
 	};	
+
+	// findAccount (acctID) {
+	// 	const delIndex = this.acctList.findIndex(accounts => {
+	// 		// console.log('acct to delete is ' + accounts.acctID);
+	// 		return accounts.acctID === acctID;
+	// 	});
+	// }
 
 	deleteAccount = (acctID) => {
 		const delIndex = this.acctList.findIndex(accounts => {

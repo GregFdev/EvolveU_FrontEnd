@@ -1,35 +1,39 @@
+// part 2 is for the accounts exercise
+
 import React, { Component } from 'react';
-import Account from './Account.js';
+// import Account from './Account.js';
 import './style_accounts.css';
 
 // create sample account
-const gregAccount = new Account('Savings', 1000, 1);
+// const gregAccount = new Account('Savings', 1000, 'Julia Freson', 1);
 
 class AccountComp extends Component {
-	// constructor () {
-	// 	super();
-	// 			// this.state = {
-	// 			// 	// newAccount: this.props.newAccount
-	// 			// };
-
-	// };
+	constructor (props) {
+		super(props);
 		
-	onClickDep = (e) => {
-		let depNum = document.getElementById("depInput");
-		this.state.newAccount.deposit(Number(depNum.value));
-		// this.setState({newAccount: this.props.newAccount.balance});
+		console.log(this.props.account);
+
+
 	};
 
-	// onClickWithdrawal = (e) => {
-	// 	let withdNum = document.getElementById("wdInput");
-	// 	console.log('WD value is ' + withdNum.value);
-	// 	gregAccount.withdrawal(Number(withdNum.value));
-	// 	this.setState({balance: gregAccount.balance});
-	// 	console.log('new balance is ' + gregAccount.balance)
-	// };
+	onClickDep = (e) => {
+		let depNum = document.getElementById("depInput");
+		this.account.deposit(Number(depNum.value));
+		// this.setState({balance: this.account.balance});
+		// console.log('new balance is ' + this.newAccount.balance)
+
+	};
+
+	onClickWithdrawal = (e) => {
+		let withdNum = document.getElementById("wdInput");
+		// console.log('WD value is ' + withdNum.value);
+		this.account.withdrawal(Number(withdNum.value));
+		// this.setState({balance: this.account.balance});
+		// console.log('new balance is ' + this.newAccount.balance)
+	};
 
 	render() {
-		return (
+		return(
 			<div className='container'>
 				<div className='account'>
 					<h1>
@@ -39,11 +43,10 @@ class AccountComp extends Component {
 					<h2 className='acctInfo'>
 						<div>
 
-							<p>Account Holder: </p><p>{gregAccount.userName}</p>
+													
+							<p>Account Type: {this.props.account.acctType}</p>
 							
-							<p>Account Type: {gregAccount.acctType}</p>
-							
-							<p>Account Balance $CDN: {this.state.balance}</p>
+							<p>Account Balance $CDN: {this.props.account.balance}</p>
 
 						</div>
 
@@ -56,16 +59,15 @@ class AccountComp extends Component {
 						<input className='inputFields' id='wdInput'></input>
 						<button className='buttons' id='btnWithdrawal' onClick={this.onClickWithdrawal} >Submit</button>
 					</div>
-					<br></br><br></br><br></br>
-
+					
 				</div>
 			</div>
 
 
 		)
+	}
 
-	};
-};
+}
 
 export default AccountComp;
 

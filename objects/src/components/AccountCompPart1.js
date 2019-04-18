@@ -3,28 +3,31 @@ import Account from './Account.js';
 import './style_accounts.css';
 
 // create sample account
-const gregAccount = new Account('Savings', 1000, 'Julia Freson', 1);
+// const gregAccount = new Account('Savings', 1000, 'Julia Freson', 1);
 
 class AccountComp extends Component {
 	constructor () {
 		super();
+		this.newAccount = new Account('Savings', 1000, 1);	  
 		this.state = {
-			balance: gregAccount.balance
+			balance: this.newAccount.balance
 		};
 	};
 
 	onClickDep = (e) => {
 		let depNum = document.getElementById("depInput");
-		gregAccount.deposit(Number(depNum.value));
-		this.setState({balance: gregAccount.balance});
+		this.newAccount.deposit(Number(depNum.value));
+		this.setState({balance: this.newAccount.balance});
+		// console.log('new balance is ' + this.newAccount.balance)
+
 	};
 
 	onClickWithdrawal = (e) => {
 		let withdNum = document.getElementById("wdInput");
 		console.log('WD value is ' + withdNum.value);
-		gregAccount.withdrawal(Number(withdNum.value));
-		this.setState({balance: gregAccount.balance});
-		console.log('new balance is ' + gregAccount.balance)
+		this.newAccount.withdrawal(Number(withdNum.value));
+		this.setState({balance: this.newAccount.balance});
+		// console.log('new balance is ' + this.newAccount.balance)
 	};
 
 	render() {
@@ -38,9 +41,8 @@ class AccountComp extends Component {
 					<h2 className='acctInfo'>
 						<div>
 
-							<p>Account Holder: </p><p>{gregAccount.userName}</p>
-							
-							<p>Account Type: {gregAccount.acctType}</p>
+													
+							<p>Account Type: {this.newAccount.acctType}</p>
 							
 							<p>Account Balance $CDN: {this.state.balance}</p>
 
@@ -55,8 +57,7 @@ class AccountComp extends Component {
 						<input className='inputFields' id='wdInput'></input>
 						<button className='buttons' id='btnWithdrawal' onClick={this.onClickWithdrawal} >Submit</button>
 					</div>
-					<br></br><br></br><br></br>
-
+					
 				</div>
 			</div>
 

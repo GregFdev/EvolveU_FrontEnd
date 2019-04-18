@@ -37,7 +37,7 @@
 	display: flex;
 	justify-content: left;
 	background-color: lightgrey;
-	flex-direction: column;
+	flex-direction: row;
 	text-align: left;
 	border: solid black;
 	border-radius: 20px;

@@ -14,7 +14,7 @@ test('test new accountContr instantiation', () => {
 
 
 	// console.log('now test for new account values');
-	// console.log(accountCtr1.acctList[0].);
+	console.log(accountCtr1.acctList[0]);
 	expect(accountCtr1.acctList[0].acctType).toBe('chequing');
 	expect(accountCtr1.acctList[0].balance).toBe(2000);
 	expect(accountCtr1.acctList[0].acctID).toBe(1);
@@ -22,6 +22,9 @@ test('test new accountContr instantiation', () => {
 	// console.log('test account deletion - ref using acctID');
 	accountCtr1.deleteAccount(4);
 	expect(accountCtr1.acctList.length).toBe(3);
+
+	console.log('test findAccount function');
+	// expect(accountCtr1.findAccount())
 
 	// console.log('test accounts total');
 	// console.log('acct total is ' + accountCtr1.getAccountsTotal());
