@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 // import Account from './Account.js';
-import AccountComp from './AccountCompPart2.js';
+import AccountSummaryComp from './AccountSummaryComp.js';
 import AccountContr from './AccountContr.js';
+import AccountDetailsComp from './AccountDetailsComp.js';
 import './style_accounts.css';
 
 
@@ -10,13 +11,14 @@ class AccountContrComp extends Component {
 		super();
 		const controller = new AccountContr();
 
-		controller.addAccount('saving');
-		controller.addAccount('chequing');
-		controller.addAccount('empty');
-		controller.addAccount('invest');
+		controller.addAccount('saving', 1000);
+		controller.addAccount('chequing', 2000);
+		
+		
 		
 		this.state = {
-			controllerState: controller
+			controllerState: controller,
+			displayDetails: true
 		};
 	};
 
@@ -35,17 +37,11 @@ class AccountContrComp extends Component {
 
 	render() {
 
-		// console.log('num accts in render = ', this.state.controllerState.length);
 		const acctList = this.state.controllerState.acctList.map((item) => {
-			// console.log('account type ', item.acctType, 'account ID', item.acctID);
 			return (
-				// <li key={item.acctID}>{item.acctID}: Account Name: {item.acctType} and Account Balance: {item.balance}</li>
-				<AccountComp key={item.acctID} account={item}/>
+				<AccountSummaryComp key={item.acctID} account={item}/>
 			)
 		});
-
-		// console.log('list is:', acctListRender);
-			
 
 		
 
@@ -56,26 +52,26 @@ class AccountContrComp extends Component {
 				<div className='containerLeft'>
 					<div className='account'>
 
-
-						<h4>Total of all accounts is ($CDN): </h4>
-						<h4>Number of Accounts is: </h4>
-						<h4>Largest account is: </h4>
-						<h4>Smallest account is: </h4>
+						<h3>Accounts Summary</h3>
+						<li className='list' >Total of all accounts is ($CDN): </li>
+						<li className='list' >Number of Accounts is: </li>
+						<li className='list' >Largest account is: </li>
+						<li className='list' >Smallest account is: </li>
 						
 					
 					</div>
+			
 
-					<div className='acctInfo'>
+					<button className='buttons' id='btnNewAcct' onClick={this.onClickAddAccount}>Add Account</button>
+					{acctList}
 
-						<button className='buttons' id='btnNewAcct' onClick={this.onClickAddAccount}>Add Account</button>
-						{acctList}
-
-					</div>
-
-					
+									
 				</div>
 
-				<div id='accountlist' className='containerRight'>
+				<div id='accountDetails' className='containerRight'>
+
+                    {/*{this.state.displayDetails === true ? <AccountDetailsComp /> : ''}*/}
+
 
 					
 						
