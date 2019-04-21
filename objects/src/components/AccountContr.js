@@ -10,40 +10,39 @@ class AccountContr {
 
 	};
 
-	addAccount (accountName) {
+	addAccount (acctType, initBal) {
 		this.acctID += 1;
-		const newAccount = new Account(accountName, 0, this.acctID);
+		const newAccount = new Account(this.acctID, acctType, initBal);
 		this.acctList.push(newAccount);
 		
 	};	
 
-	// findAccount (acctID) {
-	// 	const delIndex = this.acctList.findIndex(accounts => {
-	// 		// console.log('acct to delete is ' + accounts.acctID);
-	// 		return accounts.acctID === acctID;
-	// 	});
-	// }
+	findAccountIndex (acctID) {
+		return (
+			this.acctList.findIndex(accounts => {
+				// console.log('acct to delete is ' + accounts.acctID);
+				return (Number(accounts.acctID) === Number(acctID));
+			})
+		)
+	};
 
-	deleteAccount = (acctID) => {
-		const delIndex = this.acctList.findIndex(accounts => {
-			// console.log('acct to delete is ' + accounts.acctID);
-			return accounts.acctID === acctID;
-		});
+	deleteAccount (acctID) {
+		const delIndex = this.findAccountIndex(acctID);
 		// console.log('index to delete is ' + delIndex);
 		this.acctList.splice((delIndex), 1);
 	};
 
-	getAccountsTotal = () => {
+	getAccountsTotal () {
 		return (
 			this.acctList.reduce((cumTot, account) => {
-			console.log('acct ID is ', account.acctID, 'cumTot is ', cumTot, 'account balance is ', account.balance);
-			console.log('data type is ', typeof cumTot);
+			// console.log('acct ID is ', account.acctID, 'cumTot is ', cumTot, 'account balance is ', account.balance);
+			// console.log('data type is ', typeof cumTot);
 			return Number(cumTot + account.balance);
 			}, 0)
 		);
 	};
 
-	getMaxAccount = () => {
+	getMaxAccount () {
 
 		if(this.acctList.length > 0) {
 			let tempMax = this.acctList[0].balance;
@@ -63,7 +62,7 @@ class AccountContr {
 		} else {return null};
 		};
 
-	getMinAccount = () => {
+	getMinAccount () {
 		
 		if(this.acctList.length > 0) {
 

@@ -14,7 +14,7 @@ test('test new accountContr instantiation', () => {
 
 
 	// console.log('now test for new account values');
-	console.log(accountCtr1.acctList[0]);
+	// console.log('first account is = ', accountCtr1.acctList[0]);
 	expect(accountCtr1.acctList[0].acctType).toBe('chequing');
 	expect(accountCtr1.acctList[0].balance).toBe(2000);
 	expect(accountCtr1.acctList[0].acctID).toBe(1);
@@ -23,19 +23,21 @@ test('test new accountContr instantiation', () => {
 	accountCtr1.deleteAccount(4);
 	expect(accountCtr1.acctList.length).toBe(3);
 
-	console.log('test findAccount function');
-	// expect(accountCtr1.findAccount())
-
 	// console.log('test accounts total');
-	// console.log('acct total is ' + accountCtr1.getAccountsTotal());
+	// // console.log('acct total is ' + accountCtr1.getAccountsTotal());
 	expect(accountCtr1.getAccountsTotal()).toBe(3500);
 	expect(accountCtr1.getAccountsTotal()).toBe(3500);
 
-	// console.log('test max account');
-	// console.log('max account ID is ' + accountCtr1.getMaxAccount());
+	// // console.log('test max account');
+	// // console.log('max account ID is ' + accountCtr1.getMaxAccount());
 	expect(accountCtr1.getMaxAccount()).toBe(1);
 
-	// console.log('test min account');
+	// // console.log('test min account');
 	expect(accountCtr1.getMinAccount()).toBe(3);
+
+	// console.log('test findAccount function');
+	// console.log('account to delete is ', accountCtr1.findAccountIndex(2));
+
+	expect(accountCtr1.findAccountIndex(2)).toBe(1)
 
 });

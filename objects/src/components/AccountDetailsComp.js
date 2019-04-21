@@ -1,24 +1,20 @@
-// part 2 is for the accounts exercise
+// details of the account selected 
 
 import React, { Component } from 'react';
 // import Account from './Account.js';
 import './style_accounts.css';
 
-// create sample account
-// const gregAccount = new Account('Savings', 1000, 'Julia Freson', 1);
 
-class AccountComp extends Component {
+class AccountDetailsComp extends Component {
 	constructor (props) {
 		super(props);
+		console.log('accountcomp account passed is ', this.props.account.acctID);
 		
-		
-
-
 	};
 
 	onClickDep = (e) => {
 		let depNum = document.getElementById("depInput");
-		this.account.deposit(Number(depNum.value));
+		this.props.account.deposit(Number(depNum.value));
 		// this.setState({balance: this.account.balance});
 		// console.log('new balance is ' + this.newAccount.balance)
 
@@ -27,7 +23,7 @@ class AccountComp extends Component {
 	onClickWithdrawal = (e) => {
 		let withdNum = document.getElementById("wdInput");
 		// console.log('WD value is ' + withdNum.value);
-		this.account.withdrawal(Number(withdNum.value));
+		this.props.account.withdrawal(Number(withdNum.value));
 		// this.setState({balance: this.account.balance});
 		// console.log('new balance is ' + this.newAccount.balance)
 	};
@@ -42,7 +38,7 @@ class AccountComp extends Component {
 					
 					<h2 className='acctInfo'>
 						<div>
-
+							<p>Account Num: {this.props.account.acctID}</p>
 													
 							<p>Account Type: {this.props.account.acctType}</p>
 							
@@ -69,5 +65,5 @@ class AccountComp extends Component {
 
 }
 
-export default AccountComp;
+export default AccountDetailsComp;
 

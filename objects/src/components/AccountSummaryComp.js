@@ -8,18 +8,13 @@ class AccountSummaryComp extends Component {
 	constructor (props) {
 		super(props);
 		
-		console.log(this.props.account);
+		// console.log('account is ', this.props.account);
+		// console.log('edit btn is  ', this.props.editBtn);
 
-
-	};
-
-	onClickEdit = (e) => {
-		console.log('btn target is ', e.target);
 
 	};
 
 	
-
 	render() {
 		return(
 			
@@ -34,7 +29,18 @@ class AccountSummaryComp extends Component {
 				
 
 				<div>
-						<button className='buttons' id='btnEdit' onClick={this.onClickEdit} >Edit Account</button>
+						<button 
+							className='buttons' 
+							id={this.props.account.acctID} 
+							onClick={this.props.editBtn}>
+							Edit Account
+						</button>
+						<button 
+							className='buttons' 
+							id={this.props.account.acctID} 
+							onClick={this.props.deleteBtn}>
+							Delete Account
+						</button>
 
 				</div>
 				

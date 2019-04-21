@@ -2,7 +2,7 @@
 // import react from 'react';
 
 class Account {
-	constructor(acctType, initBal, acctID){
+	constructor(acctID, acctType, initBal){
 		// super();
 		this.acctID = acctID;
 		this.acctType = acctType;
