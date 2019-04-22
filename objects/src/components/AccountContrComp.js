@@ -90,7 +90,12 @@ class AccountContrComp extends Component {
 
 				<div id='accountDetails' className='containerRight'>
 
-                   {this.state.displayAcctID < 1 ? '': <AccountDetailsComp account={currAcct}/>}
+                   {this.state.displayAcctID < 1 ? '': 
+                		<AccountDetailsComp 
+                			account={currAcct}
+                			key={this.state.displayAcctID}
+            			/>
+            		}
 							
 				</div>
 			</div>
