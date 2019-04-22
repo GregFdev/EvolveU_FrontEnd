@@ -10,7 +10,7 @@ class AccountContr {
 
 	};
 
-	addAccount (acctType, initBal) {
+	addAccount (acctType, initBal=0) {
 		this.acctID += 1;
 		const newAccount = new Account(this.acctID, acctType, initBal);
 		this.acctList.push(newAccount);

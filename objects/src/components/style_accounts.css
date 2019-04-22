@@ -29,7 +29,7 @@
 .containerRight {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: top;
 	text-align: left;
 
 }
@@ -51,18 +51,23 @@
 
 .accountSummary {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	background-color: lightgrey;
 	flex-direction: row;
 	text-align: left;
 	border: solid black;
 	border-radius: 20px;
-	width: 500px;
+	width: 600px;
 	height: auto;
 	padding: 10px;
 	margin: 10px;
 	box-shadow: 5px 6px 3px #282c34c9;
 
+}
+
+.summaryButtons {
+	text-align: right;
+	width: 200px;
 }
 
 .acctList {
@@ -71,7 +76,7 @@
     border: solid #282c34c9 3px;
     border-width: 5px;
     border-radius: 20px;
-    box-shadow: 9px 10px 5px #282c34c9;
+    box-shadow: 5px 6px 3px #282c34c9;
     text-align: left;
 }
 
@@ -86,7 +91,7 @@
     border: solid #282c34c9 3px;
     border-width: 5px;
     border-radius: 20px;
-    box-shadow: 9px 10px 5px #282c34c9;
+    box-shadow: 5px 6px 3px #282c34c9;
     text-align: left;
     font-size: 1.2em;
     font-weight: bold;

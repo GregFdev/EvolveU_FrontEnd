@@ -8,7 +8,7 @@ class AccountSummaryComp extends Component {
 	constructor (props) {
 		super(props);
 		
-		// console.log('account is ', this.props.account);
+		console.log('account is ', this.props.account);
 		// console.log('edit btn is  ', this.props.editBtn);
 
 
@@ -28,16 +28,18 @@ class AccountSummaryComp extends Component {
 				</ul>
 				
 
-				<div>
+				<div className='summaryButtons'>
 						<button 
 							className='buttons' 
-							id={this.props.account.acctID} 
+							id={this.props.account.acctID}
+							name={'editBtn' + this.props.account.acctID}
 							onClick={this.props.editBtn}>
 							Edit Account
 						</button>
 						<button 
 							className='buttons' 
 							id={this.props.account.acctID} 
+							name={'deleteBtn' + this.props.account.acctID}
 							onClick={this.props.deleteBtn}>
 							Delete Account
 						</button>
