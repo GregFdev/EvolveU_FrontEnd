@@ -11,7 +11,7 @@
 .containerContr {
 	display: flex;
 	flex-direction: row;
-	justify-content: left;
+	justify-content: center;
 }
 
 .containerCalc {
@@ -54,6 +54,9 @@ h2 {
     margin-top: 5px;
 }
 
+img {
+	margin: 5px;
+}
 
 
 td {
@@ -130,7 +133,7 @@ td {
 }
 
 .buttons {
-	margin: 5px;
+	margin: 10px;
 	padding: 2px;
 	background-color: #61dafb;
 	font-weight: bold;

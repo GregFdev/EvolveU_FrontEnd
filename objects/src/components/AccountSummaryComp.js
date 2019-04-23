@@ -1,7 +1,6 @@
-// summary card for list
+// summary card for list on left
 
 import React, { Component } from 'react';
-// import Account from './Account.js';
 import './style_accounts.css';
 
 class AccountSummaryComp extends Component {
@@ -9,8 +8,6 @@ class AccountSummaryComp extends Component {
 		super(props);
 		
 		console.log('account is ', this.props.account);
-		// console.log('edit btn is  ', this.props.editBtn);
-
 
 	};
 
@@ -27,7 +24,7 @@ class AccountSummaryComp extends Component {
 							<td>{this.props.account.acctID}</td>
 						</tr>
 						<tr>
-							<td>Account Name:</td>
+							<td>Account Type:</td>
 							<td>{this.props.account.acctType}</td>
 						</tr>
 						<tr>
@@ -38,11 +35,8 @@ class AccountSummaryComp extends Component {
 					</tbody>
 				</table>		
 
-
-				
-				
-
 				<div className='summaryButtons'>
+
 						<button 
 							className='buttons' 
 							id={this.props.account.acctID}
@@ -50,6 +44,7 @@ class AccountSummaryComp extends Component {
 							onClick={this.props.editBtn}>
 							Edit Account
 						</button>
+
 						<button 
 							className='buttons' 
 							id={this.props.account.acctID} 
@@ -68,7 +63,7 @@ class AccountSummaryComp extends Component {
 		)
 	}
 
-}
+};
 
 export default AccountSummaryComp;
 

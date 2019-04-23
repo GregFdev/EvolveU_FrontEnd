@@ -7,7 +7,6 @@ class AccountContr {
 		this.acctList = []
 		this.acctID = 0;
 		
-
 	};
 
 	addAccount (acctType, initBal=0) {
@@ -20,7 +19,6 @@ class AccountContr {
 	findAccountIndex (acctID) {
 		return (
 			this.acctList.findIndex(accounts => {
-				// console.log('acct to delete is ' + accounts.acctID);
 				return (Number(accounts.acctID) === Number(acctID));
 			})
 		)
@@ -28,15 +26,12 @@ class AccountContr {
 
 	deleteAccount (acctID) {
 		const delIndex = this.findAccountIndex(acctID);
-		// console.log('index to delete is ' + delIndex);
 		this.acctList.splice((delIndex), 1);
 	};
 
 	getAccountsTotal () {
 		return (
 			this.acctList.reduce((cumTot, account) => {
-			// console.log('acct ID is ', account.acctID, 'cumTot is ', cumTot, 'account balance is ', account.balance);
-			// console.log('data type is ', typeof cumTot);
 			return Number(cumTot + account.balance);
 			}, 0)
 		);
@@ -45,40 +40,21 @@ class AccountContr {
 	getMaxAccount () {
 
 		if(this.acctList.length > 0) {
-			let tempMax = this.acctList[0].balance;
-			let tempMaxID = this.acctList[0].acctID;
-			this.acctList.forEach(acct => {
-
-				if(acct.balance > tempMax) {
-
-					tempMax = acct.balance;
-					tempMaxID = acct.acctID;
-				};
 			
-			});
-		
-			return tempMaxID;
+			const tempMaxID = this.acctList.reduce((prev, next) => 
+				(prev.balance > next.balance ? prev : next));
+			return tempMaxID.acctID;
 
 		} else {return null};
-		};
+	};
 
 	getMinAccount () {
 		
 		if(this.acctList.length > 0) {
-
-			let tempMin = this.acctList[0].balance;
-			let tempMinID = this.acctList[0].acctID;
-			this.acctList.forEach(acct => {
-
-				if(acct.balance < tempMin) {
-					tempMin = acct.balance;
-					tempMinID = acct.acctID;
-					// console.log(tempMinID);
-
-				};
-			});
-
-			return tempMinID;
+			
+			const tempMinID = this.acctList.reduce((prev, next) => 
+				(prev.balance < next.balance ? prev : next));
+			return tempMinID.acctID;
 
 		} else {return null};
 	};

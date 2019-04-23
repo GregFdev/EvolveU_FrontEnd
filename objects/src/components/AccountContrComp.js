@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import Account from './Account.js';
 import AccountSummaryComp from './AccountSummaryComp.js';
 import AccountContr from './AccountContr.js';
 import AccountDetailsComp from './AccountDetailsComp.js';
@@ -15,34 +14,26 @@ class AccountContrComp extends Component {
 		
 		this.state = {
 			controllerState: this.controller,
-			displayAcctID: 0,
-			largestAcct: this.controller.getMaxAccount(),
-			smallestAcct: this.controller.getMinAccount(),
-			totalAccts: this.controller.getAccountsTotal()
+			displayAcctID: 0
+			// largestAcct: this.controller.getMaxAccount(),
+			// smallestAcct: this.controller.getMinAccount(),
+			// totalAccts: this.controller.getAccountsTotal()
 			};
-		// console.log('state is ', this.state);
 	};
 
 	onClickAddAccount = (e) => {
-		// const newController = new AccountContr();
-		// newController.acctList = [...this.state.controllerState.acctList];
-		// newController.acctID = this.state.controllerState.acctID;
-		 // must assign a new array
-		// const newState = newController;  
 		this.controller.addAccount();
-		this.setState({
-			controllerState: this.controller
-		})
+		// this.setState({
+		// 	controllerState: this.controller
+		// })
 
 		this.updateGeneralInfo();
 		
-		// console.log('num of accts in click = ', this.state.controllerState.acctList.length);
 	};
 
 
 	onClickDeleteAccount = (e) => {
 		this.controller.deleteAccount(e.target.id);
-		// console.log('del target is ', e.target.id, 'displayAcctID is = ',this.state.displayAcctID );
 		if(Number(e.target.id) === Number(this.state.displayAcctID)) {
 			console.log('same!');
 			this.setState({
@@ -51,9 +42,9 @@ class AccountContrComp extends Component {
 
 		};
 
-		this.setState({
-			controllerState: this.controller
-		});
+		// this.setState({
+		// 	controllerState: this.controller
+		// });
 
 		this.updateGeneralInfo();
 
@@ -61,7 +52,6 @@ class AccountContrComp extends Component {
 
 
 	onClickEditAccount = (e) => {
-		// console.log('you clicked edit and target is ', e.target.id);
 		this.setState({
 			displayAcctID: Number(e.target.id)
 			});
@@ -69,31 +59,22 @@ class AccountContrComp extends Component {
 
 	};
 	
-	updateAcctBalance = () => {
-		// console.log('update accounts triggered and new balance is ', newBalance);
-		// let balance = this.controller.acctList[this.controller.findAccountIndex(this.state.displayAcctID)].balance;
-		// console.log('modify array balance is ', balance);
-		this.setState({
-					controllerState: this.controller
-		})
-		this.updateGeneralInfo();
-	};
-
 	updateGeneralInfo = () => {
-		const newMax = this.controller.getMaxAccount();
-		const newMin = this.controller.getMinAccount();
-		const newTotal = this.controller.getAccountsTotal();
+		// const newMax = this.controller.getMaxAccount();
+		// const newMin = this.controller.getMinAccount();
+		// const newTotal = this.controller.getAccountsTotal();
 		this.setState({
-					controllerState: this.controller,
-					largestAcct: newMax,
-					smallestAcct: newMin,
-					totalAccts: newTotal
+			// largestAcct: newMax,
+			// smallestAcct: newMin,
+			// totalAccts: newTotal
 		});
 	};
 
 	render() {
 
-		const acctList = this.state.controllerState.acctList.map((item) => {
+		// const acctList = this.state.controllerState.acctList.map((item) => {
+		const acctList = this.controller.acctList.map((item) => {
+
 			return (
 				<AccountSummaryComp 
 					key={item.acctID} 
@@ -103,11 +84,12 @@ class AccountContrComp extends Component {
 				/>
 			)
 		});
-		// console.log('current state AcctID is ' + this.state.displayAcctID);
-		// console.log('current state acct index is = ', this.state.controllerState.findAccountIndex(this.state.displayAcctID));
-		const currAcctIndex = this.state.controllerState.findAccountIndex(this.state.displayAcctID);
-		const currAcct = this.state.controllerState.acctList[currAcctIndex];
-		// console.log('current state account list is ', this.state.controllerState.acctList)
+		
+
+		// const currAcctIndex = this.state.controllerState.findAccountIndex(this.state.displayAcctID);
+		// const currAcct = this.state.controllerState.acctList[currAcctIndex];
+		const currAcctIndex = this.controller.findAccountIndex(this.state.displayAcctID);
+		const currAcct = this.controller.acctList[currAcctIndex];
 
 	
 		return(
@@ -120,15 +102,15 @@ class AccountContrComp extends Component {
 							<tbody>
 								<tr>
 									<td>Total of all Accounts ($CDN):</td>
-									<td>{this.state.totalAccts}</td>
+									<td>{this.controller.getAccountsTotal()}</td>
 								</tr>
 								<tr>
 									<td>Largest Account (ID):</td>
-									<td>{this.state.largestAcct}</td>
+									<td>{this.controller.getMaxAccount()}</td>
 								</tr>
 								<tr>
 									<td>Smallest Account (ID):</td>
-									<td>{this.state.smallestAcct}</td>
+									<td>{this.controller.getMinAccount()}</td>
 								</tr>
 
 							</tbody>
@@ -148,9 +130,10 @@ class AccountContrComp extends Component {
 
                    {this.state.displayAcctID < 1 ? '': 
                 		<AccountDetailsComp 
+                			accountID={this.state.displayAcctID}
                 			account={currAcct}
 	               			updateGeneralInfo={this.updateGeneralInfo} 
-                			key={this.state.displayAcctID}
+
             			/>
             		}
 							
