@@ -2,8 +2,7 @@
 // import react from 'react';
 
 class Account {
-	constructor(acctID, acctType, initBal){
-		// super();
+	constructor(acctID, acctType, initBal) {
 		this.acctID = acctID;
 		this.acctType = acctType;
 		this.balance = Number(initBal);
@@ -16,7 +15,12 @@ class Account {
 
 	withdrawal = (wdAmt) => {
 		this.balance -= wdAmt;
-	}
+	};
+
+	typeChange = (newType) => {
+		this.acctType = newType;
+	};
+
 };
 
 

@@ -20,12 +20,26 @@ class AccountSummaryComp extends Component {
 			
 			<div className='accountSummary'>
 									
+				<table>
+					<tbody>
+						<tr>
+							<td>Account ID:</td>
+							<td>{this.props.account.acctID}</td>
+						</tr>
+						<tr>
+							<td>Account Name:</td>
+							<td>{this.props.account.acctType}</td>
+						</tr>
+						<tr>
+							<td>Account Balance $CDN:</td>
+							<td>{this.props.account.balance}</td>
+						</tr>
+
+					</tbody>
+				</table>		
+
+
 				
-				<ul className='list'>						
-					<li>Account ID: {this.props.account.acctID}</li>
-					<li>Account Name: {this.props.account.acctType}</li>
-					<li>Account Balance $CDN: {this.props.account.balance}</li>
-				</ul>
 				
 
 				<div className='summaryButtons'>

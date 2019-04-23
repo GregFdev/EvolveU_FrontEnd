@@ -34,6 +34,7 @@ class AccountContrComp extends Component {
 			controllerState: this.controller
 		})
 
+		this.updateGeneralInfo();
 		
 		// console.log('num of accts in click = ', this.state.controllerState.acctList.length);
 	};
@@ -52,9 +53,9 @@ class AccountContrComp extends Component {
 
 		this.setState({
 			controllerState: this.controller
-		})
+		});
 
-		// console.log('you clicked delete and target is ', e.target.id);
+		this.updateGeneralInfo();
 
 	};
 
@@ -68,10 +69,17 @@ class AccountContrComp extends Component {
 
 	};
 	
-	updateAcctBalance = (newBalance) => {
-		console.log('update accounts triggered and new balance is ', newBalance);
-		let balance = this.controller.acctList[this.controller.findAccountIndex(this.state.displayAcctID)].balance;
-		console.log('modify array balance is ', balance);
+	updateAcctBalance = () => {
+		// console.log('update accounts triggered and new balance is ', newBalance);
+		// let balance = this.controller.acctList[this.controller.findAccountIndex(this.state.displayAcctID)].balance;
+		// console.log('modify array balance is ', balance);
+		this.setState({
+					controllerState: this.controller
+		})
+		this.updateGeneralInfo();
+	};
+
+	updateGeneralInfo = () => {
 		const newMax = this.controller.getMaxAccount();
 		const newMin = this.controller.getMinAccount();
 		const newTotal = this.controller.getAccountsTotal();
@@ -80,9 +88,7 @@ class AccountContrComp extends Component {
 					largestAcct: newMax,
 					smallestAcct: newMin,
 					totalAccts: newTotal
-
-				})
-
+		});
 	};
 
 	render() {
@@ -109,12 +115,24 @@ class AccountContrComp extends Component {
 			<div className='containerContr'>
 				<div className='containerLeft'>
 					<div className='account'>
+						<h2>Accounts Summary</h2>
+						<table>
+							<tbody>
+								<tr>
+									<td>Total of all Accounts ($CDN):</td>
+									<td>{this.state.totalAccts}</td>
+								</tr>
+								<tr>
+									<td>Largest Account (ID):</td>
+									<td>{this.state.largestAcct}</td>
+								</tr>
+								<tr>
+									<td>Smallest Account (ID):</td>
+									<td>{this.state.smallestAcct}</td>
+								</tr>
 
-						<h3>Accounts Summary</h3>
-						<li className='list' >Total of all accounts is ($CDN): {this.state.totalAccts}</li>
-						<li className='list' >Largest account is: {this.state.largestAcct}</li>
-						<li className='list' >Smallest account is: {this.state.smallestAcct}</li>
-						
+							</tbody>
+						</table>						
 					
 					</div>
 			
@@ -131,7 +149,7 @@ class AccountContrComp extends Component {
                    {this.state.displayAcctID < 1 ? '': 
                 		<AccountDetailsComp 
                 			account={currAcct}
-                			updateBalance={this.updateAcctBalance} 
+	               			updateGeneralInfo={this.updateGeneralInfo} 
                 			key={this.state.displayAcctID}
             			/>
             		}

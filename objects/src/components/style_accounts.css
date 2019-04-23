@@ -35,18 +35,31 @@
 }
 .account {
 	display: flex;
-	justify-content: left;
+	justify-content: space-between;
 	background-color: lightgrey;
 	flex-direction: column;
 	text-align: left;
 	border: solid black;
 	border-radius: 20px;
 	width: 500px;
-	
+	font-size: 1.3em;
 	padding: 10px;
 	margin: 10px;
 	box-shadow: 5px 6px 3px #282c34c9;
 
+}
+
+h2 {
+	padding-top: 0px;
+    margin-top: 5px;
+}
+
+
+
+td {
+  /*border: 1px solid #999;*/
+  padding: 0.2rem;
+  text-align: left;
 }
 
 .accountSummary {
@@ -57,11 +70,12 @@
 	text-align: left;
 	border: solid black;
 	border-radius: 20px;
-	width: 600px;
+	width: 500px;
 	height: auto;
 	padding: 10px;
 	margin: 10px;
 	box-shadow: 5px 6px 3px #282c34c9;
+	font-size: 1.1em;
 
 }
 
@@ -86,18 +100,24 @@
 }
 
 .acctInput {
-	background-color: #61dafb;
+	background-color: #619ffb7d;
     padding: 15px;
     border: solid #282c34c9 3px;
     border-width: 5px;
     border-radius: 20px;
     box-shadow: 5px 6px 3px #282c34c9;
     text-align: left;
-    font-size: 1.2em;
+    margin-top: 20px;
+   
     font-weight: bold;
-
-
 }
+
+#titles {
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+
 .inputFields {
 	font-size: 20px;
 	border-radius: 5px;

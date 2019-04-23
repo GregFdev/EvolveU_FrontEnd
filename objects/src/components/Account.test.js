@@ -27,8 +27,10 @@ test('test withdraw method and result', () => {
 
 });
 
-test('test account name', () => {
+test('test account type change', () => {
 	const gregAccount = new Account(1,'chequing', 10);
+	gregAccount.typeChange('Investment');
+	expect(gregAccount.acctType).toBe('Investment');
 
 
 })

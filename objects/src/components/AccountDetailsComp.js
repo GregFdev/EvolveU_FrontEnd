@@ -9,22 +9,23 @@ class AccountDetailsComp extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			balance: this.props.account.balance
+			balance: this.props.account.balance,
+			acctType: this.props.account.acctType
 		}
 		console.log('current account is = ', this.props.account);
 	};
 
 	onClickDep = (e) => {
-		let depNum = Number(document.getElementById('depInput').value);
-		console.log('depNum is ', depNum);
-		this.props.account.deposit(depNum);
+		let depValue = Number(document.getElementById('depInput').value);
+		this.props.account.deposit(depValue);
 		const newBalance = this.props.account.balance;
 		console.log('new balance is ', newBalance);
 		this.setState({
-			balance:newBalance
+			balance: newBalance
 		})
 
-		this.props.updateBalance(newBalance);
+		// this.props.updateAcctBalance();
+		this.props.updateGeneralInfo();
 
 		// this.props.updateBalance(new Balance);
 		// this.props.account.deposit(Number(depNum.value));
@@ -43,37 +44,63 @@ class AccountDetailsComp extends Component {
 				balance:newBalance
 			})
 			
-			this.props.updateBalance(newBalance);
+			// this.props.updateBalance(newBalance);
 			// this.setState({balance: this.account.balance});
 			// console.log('new balance is ' + this.newAccount.balance)
 	};
 
+
+	onClickTypeChange = (e) => {
+			let newType = document.getElementById("typeInput").textContent;
+			console.log('new type is ' + newType);
+			this.props.account.typeChange(newType); // do I even need to change the account.acctType in this component?
+			this.setState({
+				acctType: newType
+			});
+			
+			// this.props.updateBalance(newBalance);
+			
+	};
 	render() {
 		return(
 			<div className='container'>
 				<div className='account'>
-					<h1>
-					Account Display
-					</h1>
-					
-					<h2 className='acctInfo'>
-						<div>
-							<p>Account Num: {this.props.account.acctID}</p>
-													
-							<p>Account Type: {this.props.account.acctType}</p>
-							
-							<p>Account Balance $CDN: {this.state.balance}</p>
-
-						</div>
-
+					<h2>
+					Account Details
 					</h2>
+					
+						<table>
+							<tbody>
+								<tr>
+									<td>Account ID:</td>
+									<td>{this.props.account.acctID}</td>
+								</tr>
+								<tr>
+									<td>Account Name:</td>
+									<td>{this.props.account.acctType}</td>
+								</tr>
+								<tr>
+									<td>Account Balance $CDN:</td>
+									<td>{this.props.account.balance}</td>
+								</tr>
+
+							</tbody>
+						</table>		
+
+
+						
+
+					
 					<div className='acctInput'>
-						<p>Deposit Amount $CDN: </p>
+						<p id='titles'>Deposit Amount $CDN: </p>
 						<input className='inputFields' id='depInput'></input>
 						<button className='buttons' onClick={this.onClickDep} >Deposit</button>
-						<p>Withdrawal Amount $CDN: </p>
+						<p id='titles'>Withdrawal Amount $CDN: </p>
 						<input className='inputFields' id='wdInput'></input>
 						<button className='buttons' onClick={this.onClickWithdrawal} >Withdrawal</button>
+						<p id='titles'>Change Account Type: </p>
+						<input className='inputFields' id='typeInput'></input>
+						<button className='buttons' onClick={this.onClickTypeChange}>Submit</button>
 					</div>
 					
 				</div>
