@@ -1,5 +1,6 @@
 import React from 'react';
 import Community from './Community';
+import CityDetailsComp from './CityDetailsComp.js';
 import './style_community.css';
 
 
@@ -12,13 +13,24 @@ class CommunityComp extends React.Component {
 		this.communityCtrl.createCity('Sidney', -34, -151, 20000);
 		this.communityCtrl.createCity('Edmonton', 55, -151, 20000);
 		this.state = {
-			displayCity: ''
+			displayCity: 'placeholder'
 		};
-
-
-
-
 	};
+
+	onClickCreateCity = (e) => {
+		this.communityCtrl.createCity('placeholder');
+		this.setState({
+			displayCity: 'placeholder'
+		});
+
+		this.reRender();
+	};
+
+	reRender = () => {
+		this.setState({})
+	};
+
+
 
 	render () {
 
@@ -39,6 +51,10 @@ class CommunityComp extends React.Component {
 			)
 		})
 
+
+		const currCityIndex = this.communityCtrl.findCityIndex(this.state.displayCity);
+		console.log('current index is ' + currCityIndex);
+		const currCity = this.communityCtrl.cityArray[currCityIndex];
 		
 		return(
 
@@ -69,7 +85,7 @@ class CommunityComp extends React.Component {
 									<th>Longitude</th>
 									<th>Population</th>
 									<th>
-										<button>New City</button>
+										<button onClick={this.onClickCreateCity}>New City</button>
 									</th>
 									
 								</tr>
@@ -85,6 +101,15 @@ class CommunityComp extends React.Component {
 
 					<div className='rightContainer'>
 						<h2>Edit City Details</h2>
+						{this.state.displayCity ? '': 
+	                		<CityDetailsComp
+	                			key={currCityIndex}
+	                			city={currCity}
+		               			reRender={this.reRender} 
+
+	            			/>
+            			}
+
 					</div>
 
 
