@@ -46,10 +46,11 @@ class Community {
 
 	getNorth = () => {
 		const mostNorthCity = this.cityArray.reduce((prev, next) => {
+
 			if (prev.cityLat > next.cityLat) {
-				return prev.cityName
+				return prev
 			} else {
-				return next.cityName
+				return next
 			};
 		});
 
@@ -59,17 +60,20 @@ class Community {
 	getSouth = () => {
 		const mostSouthCity = this.cityArray.reduce((prev, next) => {
 			if (prev.cityLat < next.cityLat) {
-				return prev.cityName
+				return prev
 			} else {
-				return next.cityName
+				return next
 			};
 		});
 
 		return mostSouthCity;
 	};
 
-	getPop = (cityName) => {
-
+	getTotalPop = () => {
+		const totalPop = this.cityArray.reduce((accum, item) => {
+			return (accum + item.cityPop)
+		}, 0);
+		return totalPop;
 	};
 
 	

@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import calculator from './components/calculator.png';
 import camera from './components/iconcamera.png';
-import phone from './components/iconphone.png';
+import iconCity from './components/iconCity.png';
 import dollar from './components/iconDollar.png';
 import circle from './components/iconcircle.png';
 import './App.css';
 import MathComp from './components/MathComp.js';
-// import AccountComp from './components/AccountCompPart1.js';
 import ReactComp from './ReactComp.js';
 import AccountContrComp from './components/AccountContrComp';
+import CommunityComp from './components/CommunityComp';
 
-// import Account from './components/Account.js';
 
 
 class App extends Component {
@@ -18,11 +17,12 @@ class App extends Component {
         super();
         this.state = {
           myOver: false,
-          display: 'accountContr',  // set initial display state
+          display: 'CommunityComp',  // set initial display state
         };
     };
 
     onClick = (e) => {
+        console.log('clicked ' + e.target.id);
         this.setState({
             display: e.target.id
         });
@@ -56,7 +56,7 @@ class App extends Component {
                         <img id='reactComp' src={camera} onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''}/>
                         <img id='calculator' src={calculator} onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''}/>
                         <img id='accountContr' src={dollar} height='60' onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} />
-                        <img id='multiply' src={phone} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} />
+                        <img id='CommunityComp' src={iconCity} onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} />
                         <img id='divide' src={circle} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} /> 
                     </div>
                 </div>
@@ -64,6 +64,7 @@ class App extends Component {
                     {this.state.display === 'reactComp' ? <ReactComp /> : ''}
                     {this.state.display === 'calculator' ? <MathComp /> : ''}
                     {this.state.display === 'accountContr' ? <AccountContrComp /> : ''}
+                    {this.state.display === 'CommunityComp' ? <CommunityComp /> : ''}
                 </div>
 
                     

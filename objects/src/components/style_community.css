@@ -1,0 +1,89 @@
+body {
+	background-color: #f1f5f8;
+}
+
+.commContainer {
+	
+	display: flex;
+	flex-direction: column;
+
+	
+}
+
+.topContainer {
+	background-color: lightgrey;
+	display: flex;
+	flex-direction: column;
+	border: solid black;
+	border-radius: 20px;
+	margin: 20px;
+	padding: 15px;
+	text-align: center;
+	
+
+}
+
+.btmContainer {
+	display: flex;
+	flex-direction: row;
+	
+
+}
+
+.leftContainer {
+	border: solid black;
+	border-radius: 20px;
+	margin: 20px;
+	padding: 15px;
+	width: auto;
+
+}
+
+thead {
+	border: 3px solid black;
+
+}
+
+tbody {
+
+	border: 3px solid black;
+
+}
+
+th {
+	border: 1px solid black;
+	font-size: 1.2em;
+	padding: 5px;
+}
+td {
+	border: 1px solid black;
+	padding: 10px;
+}
+
+.cityTable {
+	border-collapse: collapse;
+	border: 3px solid black;
+	padding: 5px;
+
+}
+
+
+
+.rightContainer {
+	border: solid black;
+	border-radius: 20px;
+	margin: 20px;
+	padding: 15px;
+	
+
+}
+
+.editDetails {
+
+
+}
+
+button {
+	font-size: 1.0em;
+	border-radius: 5px;
+}

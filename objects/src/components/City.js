@@ -28,6 +28,8 @@ class City {
 				return 'Village';
 			case (size <= 100 && size > 0):
 				return 'Hamlet';
+			default:
+				return 'City';
 		};
 	};
 };

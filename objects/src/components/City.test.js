@@ -5,7 +5,7 @@ import City from './City.js';
 test('test new city instantiation', () => {
 	const newCity = new City('Calgary', 150, 120, 20000);
 	
-	console.log('test params are passed');
+	// console.log('test params are passed');
 
 	expect(newCity.cityName).toBe('Calgary');
 	expect(newCity.cityLat).toBe(150);
