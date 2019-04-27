@@ -3,7 +3,7 @@ import City from './City.js';
 // City params are (cityName, cityLat, cityLong, cityPop)
 
 test('test new city instantiation', () => {
-	const newCity = new City('Calgary', 150, 120, 20000);
+	const newCity = new City(1, 'Calgary', 150, 120, 20000);
 	
 	// console.log('test params are passed');
 

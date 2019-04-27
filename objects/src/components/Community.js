@@ -7,30 +7,36 @@ import City from './City.js';
 class Community {
 	constructor() {
 		this.cityArray = [];
+		this.cityID = 0;
 
 	};
 
 
-	findCityIndex = (cityName) => {
-		return (this.cityArray.findIndex(item => item.cityName === cityName))
+	findCityIndex = (cityID) => {
+		console.log('city array is ', this.cityArray);
+		
+		return (this.cityArray.findIndex(item => Number(item.cityID) === Number(cityID)))
 	};
 
-	createCity = (cityName, cityLat, cityLong, cityPop) => {
+	createCity = (cityName, cityLat, cityLong, cityPop=0) => {
 		// should add controls on value entered here.
-		const myCity = new City(cityName, cityLat, cityLong, cityPop);
+		this.cityID ++;
+		const myCity = new City(this.cityID, cityName, cityLat, cityLong, cityPop);
 		this.cityArray.push(myCity);
 
 	};
 
-	deleteCity = (cityName) => {
-		const index = this.findCityIndex(cityName); 
+	deleteCity = (cityID) => {
+
+		const index = this.findCityIndex(cityID); 
+		console.log('delete - cityID is ' + cityID, ' index is ' + index);
 		this.cityArray.splice(index, 1);
 
 	};
 
 
-	whichSphere = (cityName) => {
-		const cityIndex = this.findCityIndex(cityName);
+	whichSphere = (cityID) => {
+		const cityIndex = this.findCityIndex(cityID);
 
 		if (cityIndex < 0) {
 			return 'City Does Not Exist'
@@ -45,8 +51,9 @@ class Community {
 	};
 
 	getNorth = () => {
-		const mostNorthCity = this.cityArray.reduce((prev, next) => {
-
+		const filterArray = this.cityArray.filter(item => item.cityLat != null);
+		console.log('filtered array is ', filterArray);
+		const mostNorthCity = filterArray.reduce((prev, next) => {
 			if (prev.cityLat > next.cityLat) {
 				return prev
 			} else {
@@ -58,7 +65,8 @@ class Community {
 	};
 
 	getSouth = () => {
-		const mostSouthCity = this.cityArray.reduce((prev, next) => {
+		const filterArray = this.cityArray.filter(item => item.cityLat != null);
+		const mostSouthCity = filterArray.reduce((prev, next) => {
 			if (prev.cityLat < next.cityLat) {
 				return prev
 			} else {

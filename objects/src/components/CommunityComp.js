@@ -13,14 +13,15 @@ class CommunityComp extends React.Component {
 		this.communityCtrl.createCity('Sidney', -34, -151, 20000);
 		this.communityCtrl.createCity('Edmonton', 55, -151, 20000);
 		this.state = {
-			displayCity: 'placeholder'
+			displayCityID: 0
 		};
 	};
 
 	onClickCreateCity = (e) => {
-		this.communityCtrl.createCity('placeholder');
+		this.communityCtrl.createCity('temporary');
+		// console.log('new city ID is ' + this.communityCtrl.cityID);
 		this.setState({
-			displayCity: 'placeholder'
+			displayCityID: this.communityCtrl.cityID
 		});
 
 		this.reRender();
@@ -30,7 +31,41 @@ class CommunityComp extends React.Component {
 		this.setState({})
 	};
 
+	onClickEditCity = (e) => {
+		this.setState({
+			displayCityID: Number(e.target.id)
+			});
+		
 
+	};
+
+	onClickDeleteCity = (e) => {
+		console.log('to delete is ' + e.target.id);
+		this.communityCtrl.deleteCity(e.target.id);
+		if(Number(e.target.id) === Number(this.state.displayCityID)) {
+			console.log('same!');
+			this.setState({
+				displayCityID: 0
+			});
+
+		};
+
+		this.reRender();
+	};
+
+	whichSphere = (cityID) => {
+		console.log('cityID for sphere is ' + cityID);
+		return (this.communityCtrl.whichSphere(cityID))
+	};
+
+
+	onSubmitClose = () => {
+		this.setState({
+			displayCityID: 0
+		});
+	};
+
+	
 
 	render () {
 
@@ -38,23 +73,24 @@ class CommunityComp extends React.Component {
 		const cityList = this.communityCtrl.cityArray.map((city) => {
 
 			return(
-				<tr key={city.cityName}>
+				<tr key={city.cityID}>
 					<td>{city.cityName}</td>
 					<td>{city.cityLat}</td>
 					<td>{city.cityLong}</td>
 					<td>{city.cityPop}</td>
 					<td colSpan='2'>
-						<button>Edit</button>
-						<button>Delete</button>
+						<button id={city.cityID} onClick={this.onClickEditCity}>Edit</button>
+						<button id={city.cityID} onClick={this.onClickDeleteCity}>Delete</button>
 					</td>
 				</tr>
 			)
-		})
+		});
 
 
-		const currCityIndex = this.communityCtrl.findCityIndex(this.state.displayCity);
-		console.log('current index is ' + currCityIndex);
-		const currCity = this.communityCtrl.cityArray[currCityIndex];
+		const currCityIndex = this.communityCtrl.findCityIndex(this.state.displayCityID);
+		console.log('current ID is ' + this.state.displayCityID + 'curr index is ' + currCityIndex);
+		const currCityObj = this.communityCtrl.cityArray[currCityIndex];
+		console.log('curr city is '  + currCityObj);
 		
 		return(
 
@@ -80,9 +116,9 @@ class CommunityComp extends React.Component {
 							
 							<thead>
 								<tr>
-									<th>Name</th>
-									<th>Latitude</th>
-									<th>Longitude</th>
+									<th>City Name</th>
+									<th>Latitude (Deg.)</th>
+									<th>Longitude (Deg.)</th>
 									<th>Population</th>
 									<th>
 										<button onClick={this.onClickCreateCity}>New City</button>
@@ -99,18 +135,19 @@ class CommunityComp extends React.Component {
 
 					</div>
 
-					<div className='rightContainer'>
-						<h2>Edit City Details</h2>
-						{this.state.displayCity ? '': 
-	                		<CityDetailsComp
-	                			key={currCityIndex}
-	                			city={currCity}
-		               			reRender={this.reRender} 
+											
+					{this.state.displayCityID === 0 ? '': 
+                		<CityDetailsComp
+                			key={this.state.displayCityID}
+                			cityObj={currCityObj}
+	               			reRender={this.reRender} 
+	               			whichSphere={this.whichSphere}
+	               			onSubmitClose={this.onSubmitClose}
 
-	            			/>
-            			}
+            			/>
+        			}
 
-					</div>
+					
 
 
 				</div>

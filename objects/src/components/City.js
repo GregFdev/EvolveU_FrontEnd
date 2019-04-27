@@ -1,7 +1,8 @@
 
 
 class City {
-	constructor(cityName, cityLat, cityLong, cityPop) {
+	constructor(cityID, cityName, cityLat, cityLong, cityPop) {
+		this.cityID = cityID;
 		this.cityName = cityName;
 		this.cityLat = cityLat;
 		this.cityLong = cityLong;
@@ -11,9 +12,9 @@ class City {
 	showCity = () => 
 		`${this.cityName} ${this.cityLat} ${this.cityLong} ${this.cityPop}`;
 
-	movedIn = (popAdded) => this.cityPop += popAdded;
+	movedIn = (popAdded) => this.cityPop += Number(popAdded);
 
-	movedOut = (popRemoved) => this.cityPop -= popRemoved;
+	movedOut = (popRemoved) => this.cityPop -= Number(popRemoved);
 
 	howBig = () => {
 		let size = this.cityPop;
@@ -28,8 +29,10 @@ class City {
 				return 'Village';
 			case (size <= 100 && size > 0):
 				return 'Hamlet';
+			case (size <= 0):
+				return 'No People Here!';
 			default:
-				return 'City';
+				return 'Unknown';
 		};
 	};
 };

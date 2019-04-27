@@ -1,6 +1,6 @@
 import Community from './Community.js';
 
-// City params are (cityName, cityLat, cityLong, cityPop)
+// City params are (cityID, cityName, cityLat, cityLong, cityPop)
 
 test('Community controller test', () => {
 
@@ -13,13 +13,14 @@ test('Community controller test', () => {
 
 	expect(myCommunity.cityArray.length).toBe(4);
 
-	const index = myCommunity.findCityIndex('test3');
-	expect(index).toBe(2);
+	const index = myCommunity.findCityIndex(4);
+	expect(index).toBe(3);
 
-	myCommunity.deleteCity('test2');
+	myCommunity.deleteCity(2);
+	console.log('array is now ', myCommunity.cityArray);
 	expect(myCommunity.cityArray.length).toBe(3);
 
-	const sphere = myCommunity.whichSphere('test3');
+	const sphere = myCommunity.whichSphere(3);
 	expect(sphere).toBe('Southern Hemisphere');
 
 	const mostNorthCity = myCommunity.getNorth();
