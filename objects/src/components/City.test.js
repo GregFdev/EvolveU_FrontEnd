@@ -24,11 +24,26 @@ test('test new city instantiation', () => {
 	const big = newCity.howBig();
 	expect(newCity.cityPop).toBe(20);
 	expect(big).toBe('Hamlet');
-
-
-
-
-
-
-
 });
+
+test('my fav city instantiation', () => {
+
+	const myCity = new City(1, 'GregCity', 56, 60, 1000);
+
+	let mFavCity = myCity;
+
+	// console.log('myCityPop is ', myCity.cityPop);
+	// console.log('mFavCity Pop is ', mFavCity.cityPop);
+
+	myCity.movedIn(2500);
+	// console.log('myCityPop is ', myCity.cityPop);
+	// console.log('mFavCity Pop is ', mFavCity.cityPop);
+	
+})
+
+
+
+
+
+
+
