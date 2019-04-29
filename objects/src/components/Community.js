@@ -13,7 +13,7 @@ class Community {
 
 
 	findCityIndex = (cityID) => {
-		console.log('city array is ', this.cityArray);
+		// console.log('city array is ', this.cityArray);
 		
 		return (this.cityArray.findIndex(item => Number(item.cityID) === Number(cityID)))
 	};
@@ -29,7 +29,7 @@ class Community {
 	deleteCity = (cityID) => {
 
 		const index = this.findCityIndex(cityID); 
-		console.log('delete - cityID is ' + cityID, ' index is ' + index);
+		// console.log('delete - cityID is ' + cityID, ' index is ' + index);
 		this.cityArray.splice(index, 1);
 
 	};
@@ -52,7 +52,7 @@ class Community {
 
 	getNorth = () => {
 		const filterArray = this.cityArray.filter(item => item.cityLat != null);
-		console.log('filtered array is ', filterArray);
+		// console.log('filtered array is ', filterArray);
 		const mostNorthCity = filterArray.reduce((prev, next) => {
 			if (prev.cityLat > next.cityLat) {
 				return prev

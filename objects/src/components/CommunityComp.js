@@ -40,7 +40,7 @@ class CommunityComp extends React.Component {
 	};
 
 	onClickDeleteCity = (e) => {
-		console.log('to delete is ' + e.target.id);
+		// console.log('to delete is ' + e.target.id);
 		this.communityCtrl.deleteCity(e.target.id);
 		if(Number(e.target.id) === Number(this.state.displayCityID)) {
 			console.log('same!');
@@ -54,7 +54,7 @@ class CommunityComp extends React.Component {
 	};
 
 	whichSphere = (cityID) => {
-		console.log('cityID for sphere is ' + cityID);
+		// console.log('cityID for sphere is ' + cityID);
 		return (this.communityCtrl.whichSphere(cityID))
 	};
 
@@ -88,9 +88,9 @@ class CommunityComp extends React.Component {
 
 
 		const currCityIndex = this.communityCtrl.findCityIndex(this.state.displayCityID);
-		console.log('current ID is ' + this.state.displayCityID + 'curr index is ' + currCityIndex);
+		// console.log('current ID is ' + this.state.displayCityID + 'curr index is ' + currCityIndex);
 		const currCityObj = this.communityCtrl.cityArray[currCityIndex];
-		console.log('curr city is '  + currCityObj);
+		// console.log('curr city is '  + currCityObj);
 		
 		return(
 

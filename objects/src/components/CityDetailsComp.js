@@ -57,7 +57,7 @@ class CityDetailsComp extends Component {
 		this.props.cityObj.cityName = this.state.cityName;
 		this.props.cityObj.cityLat = this.state.cityLat;
 		this.props.cityObj.cityLong = this.state.cityLong;
-		this.props.onSubmitClose();
+		this.props.onSubmitClose(); 
 		e.preventDefault();
 	};
 

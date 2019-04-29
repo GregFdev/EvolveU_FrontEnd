@@ -8,18 +8,17 @@ test('test LinkedList instantiation', () => {
 	linkedList.insertNode('Eggs', 2000);
 	linkedList.insertNode('Treats', 10000);
 
-	// console.log(linkedList.getCurrIndex());
+	console.log('currentnode is ', linkedList.position);
 
 	// console.log('length is ' + linkedList.size);
 
-	linkedList.insertNode('pears', 20);
-	expect(linkedList.size).toBe(5);
+	// linkedList.insertNode('pears', 20);
+	expect(linkedList.size).toBe(1);
 	// console.log('length is ' + linkedList.size);
 
-	console.log('node 2 is ' + linkedList.getNode(2));
+	
 
-
-
+	// linkedList.deleteNode(); // delete the current node
 
 
 

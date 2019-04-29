@@ -17,7 +17,7 @@ test('Community controller test', () => {
 	expect(index).toBe(3);
 
 	myCommunity.deleteCity(2);
-	console.log('array is now ', myCommunity.cityArray);
+	// console.log('array is now ', myCommunity.cityArray);
 	expect(myCommunity.cityArray.length).toBe(3);
 
 	const sphere = myCommunity.whichSphere(3);

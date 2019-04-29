@@ -5,36 +5,42 @@ class LinkedList {
 	constructor() {
 		// set list to empty
 		this.head = null;
+		this.tail = null;
+		this.position = null; // current node is null
 		this.size = 0;
-		this.currIndex = null // position in list starting at 0
 		
 
 	};
 
-	getCurrIndex = () => {
-		console.log(`Current index is ${this.currIndex}`);
-	};
-
+	
 	// insert Node after current node
 	insertNode = (subject, amount) => {
 		const node = new Node(subject, amount); // creates new node with data
-		let current; 	// to store the current node
+		// this.position != null ? this.position.showNode() : null;
 
 		// if list empty make head the new node
 		if(this.head === null) {
 			this.head = node;
-		} else { // if not empty make head the current node
-				current = this.head;
+			this.tail = node;
+			this.position = node;
 
-				// now iterate to end of list through each existing node
-				while(current.next != null) {
-					current = current.next; // set current to next node if next node exists
-
+		} else { // if not empty make head the new node
+				// let current = this.position;
+				
+				node.previous = this.position;
+				node.next = this.position.next;
+				// console.log('new node is ');
+				// node.showNode();
+				// console.log('current.next node is ');
+				this.position.next = node;
+				if (node.next != null) {
+					node.next.previous = node;
 				};
 
-				// when next node is empty, add node there
-				current.next = node;
+				
 
+				this.position = node;
+								
 		};
 
 		// now add 1 to size
@@ -42,25 +48,54 @@ class LinkedList {
 
 	};
 
-	getNode = (index) => {
-		if (index > -1) {
-			// console.log(`getting index ${index}`)
-			let current = this.head;
-			let i = 0;
+	
 
-			// iterate through list until end or reach desired index
-			while((current.next != null) && (i < index)) {
-				// console.log(`current index in while is ${i}`);
-				current = current.next;
-				i++;
+	// deleteNode = () => {  // delete the current node and return object that was deleted
 
-			}
-			return (current !== null ? current.subject : undefined);
+	// 	if(this.position != null) {
+	// 		let current = this.position;
 
-		} else {
-			return undefined;
-		}
-	}
+
+
+
+
+
+	// 	}
+	// 	if (index < 0 || index > (this.size - 1) {
+	// 		console.log('index not valid');
+	// 		return undefined;
+	// 	} else {
+
+	// 		let current = this.head;
+	// 		let previous = null;
+	// 		let i = 0;
+			
+	// 		if(index === 0) {
+	// 			this.head = current.next
+
+	// 		} else {
+
+	// 			while(i < index) {
+ // 				previous = current;
+	// 			current = current.next;
+	// 			i++;
+				
+	// 			};
+
+	// 		}
+
+			
+	// 	}
+			
+
+
+
+
+	// 	} else {
+	// 		console.log('not a valid index too small');
+	// 		return undefined;
+	// 	}
+	// }
 
 };
 

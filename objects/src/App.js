@@ -22,7 +22,7 @@ class App extends Component {
     };
 
     onClick = (e) => {
-        console.log('clicked ' + e.target.id);
+        // console.log('clicked ' + e.target.id);
         this.setState({
             display: e.target.id
         });

@@ -5,6 +5,6 @@ import Node from './Node.js';
 test('node instantiation', () => {
 	const newNode = new Node('Fish', 300);
 
-	newNode.showNode();
+	// newNode.showNode();
 
 });

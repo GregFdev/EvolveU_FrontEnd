@@ -72,7 +72,6 @@ class AccountContrComp extends Component {
 
 	render() {
 
-		// const acctList = this.state.controllerState.acctList.map((item) => {
 		const acctList = this.controller.acctList.map((item) => {
 
 			return (
@@ -86,8 +85,6 @@ class AccountContrComp extends Component {
 		});
 		
 
-		// const currAcctIndex = this.state.controllerState.findAccountIndex(this.state.displayAcctID);
-		// const currAcct = this.state.controllerState.acctList[currAcctIndex];
 		const currAcctIndex = this.controller.findAccountIndex(this.state.displayAcctID);
 		const currAcct = this.controller.acctList[currAcctIndex];
 
