@@ -6,7 +6,7 @@ import './style_community.css';
 class CityDetailsComp extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
+		this.state = {  // these may not need to be in state
 			
 			cityName: this.props.cityObj.cityName,
 			cityLat: this.props.cityObj.cityLat,

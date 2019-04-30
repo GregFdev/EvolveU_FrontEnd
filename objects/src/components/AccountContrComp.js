@@ -13,7 +13,7 @@ class AccountContrComp extends Component {
 		this.controller.addAccount('chequing', 2000);
 		
 		this.state = {
-			controllerState: this.controller,
+			// controllerState: this.controller,
 			displayAcctID: 0
 			// largestAcct: this.controller.getMaxAccount(),
 			// smallestAcct: this.controller.getMinAccount(),
@@ -42,10 +42,6 @@ class AccountContrComp extends Component {
 
 		};
 
-		// this.setState({
-		// 	controllerState: this.controller
-		// });
-
 		this.updateGeneralInfo();
 
 	};
@@ -60,14 +56,8 @@ class AccountContrComp extends Component {
 	};
 	
 	updateGeneralInfo = () => {
-		// const newMax = this.controller.getMaxAccount();
-		// const newMin = this.controller.getMinAccount();
-		// const newTotal = this.controller.getAccountsTotal();
-		this.setState({
-			// largestAcct: newMax,
-			// smallestAcct: newMin,
-			// totalAccts: newTotal
-		});
+		
+		this.setState({});
 	};
 
 	render() {
@@ -80,7 +70,7 @@ class AccountContrComp extends Component {
 					account={item} 
 					editBtn={this.onClickEditAccount} 
 					deleteBtn={this.onClickDeleteAccount}
-				/>
+				/> 
 			)
 		});
 		
