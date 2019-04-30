@@ -8,20 +8,20 @@ test('test LinkedList instantiation', () => {
 	linkedList.insertNode('Eggs', 2000);
 	linkedList.insertNode('Treats', 10000);
 
-	console.log('currentnode is ', linkedList.position);
+	console.log('currentnode is ', linkedList.position.subject);
 
 	// console.log('length is ' + linkedList.size);
 
 	// linkedList.insertNode('pears', 20);
-	expect(linkedList.size).toBe(1);
-	// console.log('length is ' + linkedList.size);
-
+	expect(linkedList.size).toBe(4);
 	
+	let deleted = linkedList.deleteNode();
+	console.log('deleted node is ', deleted.subject); // delete the current node
 
-	// linkedList.deleteNode(); // delete the current node
+	expect(linkedList.size).toBe(3);
 
 
-
+	linkedList.moveNext();
 
 
 });

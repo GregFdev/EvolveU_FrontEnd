@@ -50,52 +50,49 @@ class LinkedList {
 
 	
 
-	// deleteNode = () => {  // delete the current node and return object that was deleted
+	deleteNode = () => {  // delete the current node and return object that was deleted
+		let current = this.position;
+		console.log('to delete is ', current.subject);
 
-	// 	if(this.position != null) {
-	// 		let current = this.position;
+		if(current === null) { // array is empty, return nothing
+			console.log('current is empty');
+			return null;
 
 
+		} else {	
+			console.log('position to delete is ', current.subject);
+			(current === this.head) ? this.head = current.next : null;
+			(current === this.tail) ? this.tail = current.previous : null;
+			current.next ? current.next.previous = current.previous : null;
+			current.previous ? current.previous.next = current.next: null;
+
+			this.position = current.previous;
+			this.size --;
+			return current;
 
 
+		};
 
-
-	// 	}
-	// 	if (index < 0 || index > (this.size - 1) {
-	// 		console.log('index not valid');
-	// 		return undefined;
-	// 	} else {
-
-	// 		let current = this.head;
-	// 		let previous = null;
-	// 		let i = 0;
-			
-	// 		if(index === 0) {
-	// 			this.head = current.next
-
-	// 		} else {
-
-	// 			while(i < index) {
- // 				previous = current;
-	// 			current = current.next;
-	// 			i++;
-				
-	// 			};
-
-	// 		}
 
 			
-	// 	}
-			
+	};
 
 
+	moveNext = () => {
+		if(this.size <= 0) {
+			return null;;
+
+		} else if (this.position === null) {
+			return null;
+
+		} else {
+			this.position = this.position.next;
+			console.log('new pos is ', this.position);
+			return this.position;
+		};
+	};
 
 
-	// 	} else {
-	// 		console.log('not a valid index too small');
-	// 		return undefined;
-	// 	}
-	// }
 
 };
 
