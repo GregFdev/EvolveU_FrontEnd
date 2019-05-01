@@ -27,7 +27,7 @@ test('test LinkedList instantiation', () => {
 	linkedList.current = linkedList.head;
 
 	expect(linkedList.current.subject).toBe('Ham');
-	console.log('first move next');
+	// console.log('first move next');
 	linkedList.moveNext();
 	expect(linkedList.current.subject).toBe('Apples');
 	linkedList.moveNext();
@@ -48,7 +48,7 @@ test('test LinkedList instantiation', () => {
 	linkedList.moveNext();
 	expect(linkedList.current.subject).toBe('Apples');
 
-	console.log(`Node to delete is ${linkedList.current.subject}`);
+	// console.log(`Node to delete is ${linkedList.current.subject}`);
 	linkedList.deleteNode();
 
 	expect(linkedList.current.subject).toBe('Ham');
@@ -67,7 +67,17 @@ test('test LinkedList instantiation', () => {
 	linkedList.insertNode('Perogi', 5);
 	linkedList.insertNode('Wood', 2);
 
+	console.log('array is', linkedList.logList());
+
+	expect(linkedList.current.subject).toBe('Wood');
+	linkedList.moveFirst();
+	expect(linkedList.current.subject).toBe('Fish');
+
+	linkedList.moveLast();
+	expect(linkedList.current.subject).toBe('Wood');
 	
+	expect(linkedList.totalAmount()).toBe(7007);
+
 
 
 	// console.log('next move next');
