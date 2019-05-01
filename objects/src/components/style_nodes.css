@@ -1,0 +1,43 @@
+
+
+.containerMain {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+}
+
+.containerLeft {
+
+
+}
+
+.containerCentre{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.containerRight {
+
+
+}
+
+.containerControls {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	border: solid blue 5px;
+
+}
+
+.nodeDetail {
+	border: solid red 5px;
+
+}
+
+.node {
+	display: flex;
+	flex-direction: column;
+
+}

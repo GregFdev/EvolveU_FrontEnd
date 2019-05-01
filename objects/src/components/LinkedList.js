@@ -91,6 +91,8 @@ class LinkedList {
 	moveFirst = () => {
 		if (this.size > 0) {
 			this.current = this.head;
+			
+			
 		} else {
 			console.log('list is empty');
 		}
@@ -113,7 +115,7 @@ class LinkedList {
 			// console.log('no nodes in list');
 			
 
-		} else if (this.size === 1 && this.head === this.tail) {  // only 1 node
+		} else if (this.size === 1) {  // only 1 node
 			// console.log('deleting only node in list');
 			this.head = null;
 			this.tail = null;
@@ -139,7 +141,7 @@ class LinkedList {
 				// console.log(`current.prev = ${this.current.previous.subject}`);
 				this.current.next.previous = this.current.previous;
 				this.current.previous.next = this.current.next;
-				this.current = this.current.previous;
+				this.current = this.current.next;
 			}
 			
 			

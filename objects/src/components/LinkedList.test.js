@@ -48,11 +48,17 @@ test('test LinkedList instantiation', () => {
 	linkedList.moveNext();
 	expect(linkedList.current.subject).toBe('Apples');
 
+	console.log(linkedList.logList())
 	// console.log(`Node to delete is ${linkedList.current.subject}`);
-	linkedList.deleteNode();
+	linkedList.deleteNode(); // delete a middle one
 
-	expect(linkedList.current.subject).toBe('Ham');
-	linkedList.deleteNode();
+	expect(linkedList.current.subject).toBe('Fish');
+
+	console.log(linkedList.logList())
+
+	linkedList.movePrevious();
+
+	linkedList.deleteNode(); // delete first one
 	expect(linkedList.current.subject).toBe('Fish');
 
 	linkedList.moveNext();
@@ -61,31 +67,29 @@ test('test LinkedList instantiation', () => {
 	expect(linkedList.current.subject).toBe('Treats');
 	linkedList.deleteNode();
 	expect(linkedList.current.subject).toBe('Eggs');
+	console.log(linkedList.logList())
+
+	linkedList.deleteNode();
+	linkedList.deleteNode(); // delete whole list
+	expect(linkedList.current).toBe(null);
+
 
 	// end of delete testing.  Start first and last testing
 
-	linkedList.insertNode('Perogi', 5);
+	linkedList.insertNode('Perogi', 5); 
 	linkedList.insertNode('Wood', 2);
 
 	console.log('array is', linkedList.logList());
 
 	expect(linkedList.current.subject).toBe('Wood');
 	linkedList.moveFirst();
-	expect(linkedList.current.subject).toBe('Fish');
+	expect(linkedList.current.subject).toBe('Perogi');
 
 	linkedList.moveLast();
 	expect(linkedList.current.subject).toBe('Wood');
+
+	expect(linkedList.totalAmount()).toBe(7);
+
 	
-	expect(linkedList.totalAmount()).toBe(7007);
-
-
-
-	// console.log('next move next');
-	// linkedList.moveNext();
-
-	// let deleted = linkedList.deleteNode();
-	// console.log('deleted node is ', deleted.subject); // delete the current node
-
-	// expect(linkedList.size).toBe(3);
 
 });

@@ -9,6 +9,7 @@ import MathComp from './components/MathComp.js';
 import ReactComp from './ReactComp.js';
 import AccountContrComp from './components/AccountContrComp';
 import CommunityComp from './components/CommunityComp';
+import LinkedListComp from './components/LinkedListComp';
 
 
 
@@ -17,7 +18,7 @@ class App extends Component {
         super();
         this.state = {
           myOver: false,
-          display: 'CommunityComp',  // set initial display state
+          display: 'LinkedListComp',  // set initial display state
         };
     };
 
@@ -57,7 +58,7 @@ class App extends Component {
                         <img id='calculator' src={calculator} onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''}/>
                         <img id='accountContr' src={dollar} height='60' onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} />
                         <img id='CommunityComp' src={iconCity} onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} />
-                        <img id='divide' src={circle} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} /> 
+                        <img id='LinkedListComp' src={circle} onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} /> 
                     </div>
                 </div>
                 <div>
@@ -65,6 +66,7 @@ class App extends Component {
                     {this.state.display === 'calculator' ? <MathComp /> : ''}
                     {this.state.display === 'accountContr' ? <AccountContrComp /> : ''}
                     {this.state.display === 'CommunityComp' ? <CommunityComp /> : ''}
+                    {this.state.display === 'LinkedListComp' ? <LinkedListComp /> : ''}
                 </div>
 
                     
