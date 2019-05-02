@@ -3,7 +3,9 @@
 .containerMain {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: center;
+	padding: 10px;
+	margin: 10px;
 
 }
 
@@ -15,7 +17,8 @@
 .containerCentre{
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	margin: 10px;
+	/*justify-content: space-between;*/
 }
 
 .containerRight {
@@ -23,21 +26,50 @@
 
 }
 
-.containerControls {
+.containerControlsTop {
 	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	border: solid blue 5px;
+	flex-direction: row;
+	justify-content: space-around;
+	margin: 10px;
+	padding: 10px;
+	/*padding: 10px;*/
+
+	/*border: solid blue 5px;*/
+
+}
+
+.containerControlsBottom {
+	font-size: 1.25em;
+	font-weight: bold;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin: 10px;
+	padding: 10px;
+	/*border: solid blue 5px;*/
 
 }
 
 .nodeDetail {
-	border: solid red 5px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin: 10px;
+	/*border: solid red 5px;*/
 
 }
 
 .node {
-	display: flex;
+	/*display: flex;
 	flex-direction: column;
+	justify-content: center;*/
+	font-size: 1.1em;
+	font-weight: bold;
+	text-align: center;
+	width: 300px;
+	/*border: solid gray 3px;*/
+	border-radius: 10px;
+	background-color: gray;
+	box-shadow: 5px 6px 3px #282c34c9;
 
 }
