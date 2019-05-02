@@ -82,40 +82,47 @@ class LinkedListComp extends React.Component {
 
 		return(
 			<div className='containerMain'>
-			
-				<div className='containerLeft'>
-					<button onClick={this.movePrevious}>Previous</button>
-					<button onClick={this.moveFirst}>Move to First</button>
 
-				</div>
+				
 
 				<div className='containerCentre'>
+					<div className='containerControlsBottom'>
+						<h2>Number of Nodes: {this.state.list.size}</h2>
+						
+						<h2>Total of Amounts: {this.getTotal()}</h2>
+						
+					</div>
 					<div className='containerControlsTop'>
 						
+						
+						<button onClick={this.insertNode}>Add New Node</button>
 						<input id='idSubject' placeholder='Subject'></input>
 						
 						<input id='idAmount' placeholder='Amount'></input>
 
-						<button onClick={this.insertNode}>Add Node</button>
-						<button onClick={this.deleteNode}>Delete Node</button>
-					</div>
-					<div className='containerControlsBottom'>
-						<div>Number of Nodes: {this.state.list.size}</div>
-						<div>Total of Amounts: {this.getTotal()}</div>
 						
 					</div>
+					
 					<div className='nodeDetail'>
+						<div className='containerLeft'>
+							<button onClick={this.movePrevious}>Move to Previous</button>
+							<button onClick={this.moveFirst}>Move to First</button>
+						</div>
+
 						{this.list.current === null ? '' :
-                		<NodeComp current={this.list.current}/>
+                			<NodeComp current={this.list.current}/>
         				}
+
+        				<div className='containerRight'>
+							<button onClick={this.moveNext}>Next</button>
+							<button onClick={this.moveLast}>Move to Last</button>
+						</div>
+
 					</div>
+					<button onClick={this.deleteNode}>Delete Current Node</button>
 				</div>
 
-				<div className='containerRight'>
-					<button onClick={this.moveNext}>Next</button>
-					<button onClick={this.moveLast}>Move to Last</button>
-
-				</div>
+				
 
 			</div>
 		)

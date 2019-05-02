@@ -115,6 +115,10 @@ td {
     font-weight: bold;
 }
 
+table {
+	border-collapse: collapse;
+	border: none;
+}
 #titles {
 	margin-top: 4px;
 	margin-bottom: 4px;

@@ -18,8 +18,16 @@ class NodeComp extends React.Component {
 		return(
 
 			<div className='node'>
-				<p>Subject is: {this.props.current.subject}</p>
-				<p>Amount is: {this.props.current.amount}</p>
+				<div className='nodeLeft'>
+				{this.props.current.previous ? this.props.current.previous.subject : 'Start'}
+				</div>
+				<div className='nodeCentre'>
+				<p>{this.props.current.subject}</p>
+				<p>Amount = {this.props.current.amount}</p>
+				</div>
+				<div className='nodeRight'>
+				{this.props.current.next ? this.props.current.next.subject : 'End'}
+				</div>
 			</div>
 
 			)
