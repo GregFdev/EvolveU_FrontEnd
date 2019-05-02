@@ -4,14 +4,7 @@ import './style_nodes.css';
 
 
 class NodeComp extends React.Component {
-	constructor(props) {
-		super(props);
-		// console.log('props are ', this.props.current.subject);
-		// this.state = {
-		// 	node: this.props.current
-		// }
-	}
-
+	
 	render() {
 
 
