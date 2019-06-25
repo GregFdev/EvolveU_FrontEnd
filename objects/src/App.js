@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
-import mylogo from './logo.svg';
+import calculator from './components/calculator.png';
 import camera from './components/iconcamera.png';
-import phone from './components/iconphone.png';
-import bell from './components/iconbell.png';
-import circle from './components/iconcircle.png';
+import iconCity from './components/iconCity.png';
+import dollar from './components/iconDollar.png';
+import circle from './components/chainIcon.png';
+import list from './components/listIcon.png';
 import './App.css';
 import MathComp from './components/MathComp.js';
-
+import ReactComp from './ReactComp.js';
+import AccountContrComp from './components/AccountContrComp';
+import CommunityComp from './components/CommunityComp';
+import LinkedListComp from './components/LinkedListComp';
+import FifolifoComp from './components/FifolifoComp';
 
 
 
@@ -14,95 +19,64 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-          myState: false,
-          myComp: '',
-          myNum1: null,
-          myNum2: null
+          myOver: false,
+          display: 'FifolifoComp',  // set initial display state
         };
     };
 
     onClick = (e) => {
-        console.log(e.target.id);
-        this.pressed = e.target.id;
+        // console.log('clicked ' + e.target.id);
         this.setState({
-            myComp: e.target.id
+            display: e.target.id
         });
         
     };
 
     onOver = (e) => {
-        e.target.style.backgroundColor = 'red';
+        // e.target.style.backgroundColor = 'red';
+        e.target.style.transform = 'scale(1.3, 1.3)';
         this.setState({
-            myState: true
+            myOver: true
         });
-        // console.log(this.state);    
     };
 
     onOut = (e) => {
-        e.target.style.backgroundColor = '';
+        // e.target.style.backgroundColor = '';
+        e.target.style.transform = 'initial';
         this.setState({
-            myState: false
+            myOver: false
         });
-        // console.log(this.state);
     };
     
-    handleInputChange = (e) => {
-        
-        if(e.target.name === 'num1') {
-            this.setState({
-                myNum1: e.target.value
-            })
-        } else {
-            this.setState({
-                myNum2: e.target.value
-            })
-        }
-        console.log('changed field is ', e.target.name);
-    }
-
-
+    
     render() {
+        // console.log('display is ' + this.state.display);
         return (
             <div className="App">
-                <div>
-                    <p>Greg Apps Here</p>
-                    
-                    <img id='addition' src={camera} onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''}/>
-                    <img id='subtraction' src={bell} onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} />
-                    <img id='multiply' src={phone} onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} />
-                    <img id='divide' src={circle} onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} /> 
+                <div className='containerApp'>
+                    <h1>Greg's React Page</h1>
+                    <div>
+                        <img id='reactComp' src={camera} onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''}/>
+                        <img id='calculator' src={calculator} onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''}/>
+                        <img id='accountContr' src={dollar} height='60' onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} />
+                        <img id='CommunityComp' src={iconCity} onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} />
+                        <img id='LinkedListComp' src={circle} height='60' width='60' onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} /> 
+                        <img id='FifolifoComp' src={list} height='60' width='60' onClick = {this.onClick} onMouseOver={this.onOver} onMouseOut={this.onOut} alt={''} /> 
 
-                    <input 
-                        name='num1' 
-                        value={this.state.num1}
-                        onChange={this.handleInputChange}
-                        >
-                    </input>
-
-                    <input 
-                        name='num2' 
-                        value={this.state.num2}
-                        onChange={this.handleInputChange}
-                        >
-                    </input>
-
-                    <MathComp action={this.pressed}/>
-
-                    <header className="App-header">
-                        <img src={mylogo} className="App-logo" alt="logo" />
-                        <p>
-                            Edit <code>src/App.js</code> and save to reload.
-                        </p> 
-                        <a
-                            className="App-link"
-                            href="https://reactjs.org"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Learn React
-                        </a>
-                    </header>
+                    </div>
                 </div>
+                <div>
+                    {this.state.display === 'reactComp' ? <ReactComp /> : ''}
+                    {this.state.display === 'calculator' ? <MathComp /> : ''}
+                    {this.state.display === 'accountContr' ? <AccountContrComp /> : ''}
+                    {this.state.display === 'CommunityComp' ? <CommunityComp /> : ''}
+                    {this.state.display === 'LinkedListComp' ? <LinkedListComp /> : ''}
+                    {this.state.display === 'FifolifoComp' ? <FifolifoComp /> : ''}
+
+                </div>
+
+                    
+                
             </div>
         );
     };

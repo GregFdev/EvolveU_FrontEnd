@@ -58,9 +58,9 @@ console.log('filter 2 is', filterArray);
 //Find out the total score of all users using reduce
 
 const totScore = array.reduce((cumScore, user) => {
-  console.log(cumScore);
+  console.log('cum score is ' + cumScore, ' current user score is ' + user.score);
   return cumScore + user.score;
-}, 0);
+},0);
 console.log('total score ', totScore);
 
 // (1), what is the value of i?

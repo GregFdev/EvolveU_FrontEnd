@@ -1,0 +1,149 @@
+.background {
+	background-color: lightgrey;
+	
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+}
+
+.containerContr {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.containerCalc {
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+}
+.containerLeft {
+	display: flex;
+	flex-direction: column;
+	justify-content: right;
+	text-align: left;
+}
+
+.containerRight {
+	display: flex;
+	flex-direction: column;
+	justify-content: top;
+	text-align: left;
+
+}
+.account {
+	display: flex;
+	justify-content: space-between;
+	background-color: lightgrey;
+	flex-direction: column;
+	text-align: left;
+	border: solid black;
+	border-radius: 20px;
+	width: 500px;
+	font-size: 1.3em;
+	padding: 10px;
+	margin: 10px;
+	box-shadow: 5px 6px 3px #282c34c9;
+
+}
+
+h2 {
+	padding-top: 0px;
+    margin-top: 5px;
+}
+
+img {
+	margin: 5px;
+}
+
+
+td {
+  /*border: 1px solid #999;*/
+  padding: 0.2rem;
+  text-align: left;
+}
+
+.accountSummary {
+	display: flex;
+	justify-content: space-between;
+	background-color: lightgrey;
+	flex-direction: row;
+	text-align: left;
+	border: solid black;
+	border-radius: 20px;
+	width: 500px;
+	height: auto;
+	padding: 10px;
+	margin: 10px;
+	box-shadow: 5px 6px 3px #282c34c9;
+	font-size: 1.1em;
+
+}
+
+.summaryButtons {
+	text-align: right;
+	width: 200px;
+}
+
+.acctList {
+	background-color: #61dafb;
+    padding: 15px;
+    border: solid #282c34c9 3px;
+    border-width: 5px;
+    border-radius: 20px;
+    box-shadow: 5px 6px 3px #282c34c9;
+    text-align: left;
+}
+
+.list {
+	font-size: 1.0em;
+	list-style-type: none;
+}
+
+.acctInput {
+	background-color: #619ffb7d;
+    padding: 15px;
+    border: solid #282c34c9 3px;
+    border-width: 5px;
+    border-radius: 20px;
+    box-shadow: 5px 6px 3px #282c34c9;
+    text-align: left;
+    margin-top: 20px;
+   
+    font-weight: bold;
+}
+
+table {
+	border-collapse: collapse;
+	border: none;
+}
+#titles {
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+
+.inputFields {
+	font-size: 20px;
+	border-radius: 5px;
+	max-width: 300px;
+
+	/*align-content: center;*/
+	/*text-align: center;*/
+
+
+}
+
+.buttons {
+	margin: 10px;
+	padding: 2px;
+	background-color: #61dafb;
+	font-weight: bold;
+	border-color: solid black;
+	border-radius: 15px;
+	font-size: 18px;
+	width: 170px;
+}
+
