@@ -103,3 +103,20 @@ processPeople(people, obj => {
 		return(console.log(`over 25 ppl are ${obj.fname} ${obj.lname} and are from ${obj.province}`))
 	}
 })
+
+// April 29 2019 $practice exercises
+
+
+
+let determineTotal = function() {
+	let i = 0;
+	let total = 0;
+	processPeople(people, person => {
+		i ++;
+		total += person.age;
+	});
+	console.log(`number of people ${i}, total age ${total}, avg age ${total / i}`);
+	
+};
+//
+determineTotal();
